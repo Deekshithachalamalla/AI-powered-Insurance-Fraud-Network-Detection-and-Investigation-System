@@ -21,6 +21,14 @@ This project addresses these challenges by building a centralized system that:
 - Maintains investigation status history and audit records.
 - Displays results through an interactive dashboard.
 
+## Live Demo
+
+**Try the deployed application:**
+
+[Open Insurance Fraud Detection Dashboard](https://bb5cdkfam5jxp4ivv894lp.streamlit.app/)
+
+Explore claim risk scoring, suspicious claim investigations, financial anomaly detection, investigation history, and fraud relationship network visualization.
+
 ## 2. Project Objectives
 
 - Generate and manage structured synthetic insurance datasets.
@@ -406,15 +414,8 @@ The database contains 14 tables covering:
 
 The database uses primary key and foreign key constraints to maintain data integrity.
 
-## 10. Live Demo
 
-**Try the deployed application:**
-
-[Open Insurance Fraud Detection Dashboard](https://bb5cdkfam5jxp4ivv894lp.streamlit.app/)
-
-Explore claim risk scoring, suspicious claim investigations, financial anomaly detection, investigation history, and fraud relationship network visualization.
-
-## 11. Project Screenshots
+## 10. Project Screenshots
 
 ### 1. Dashboard Overview
 ![Dashboard Overview](screenshots/dashboard_overview.png)
@@ -448,7 +449,7 @@ Explore claim risk scoring, suspicious claim investigations, financial anomaly d
 
 
 
-## 12. Future Enhancements
+## 11. Future Enhancements
 
 - Machine learning-based fraud classification.
 - Advanced graph-based fraud detection.
@@ -459,7 +460,7 @@ Explore claim risk scoring, suspicious claim investigations, financial anomaly d
 - Larger labelled datasets for reliable model evaluation.
 - Explainable AI reports for investigators.
 
-## 13. Limitations
+## 12. Limitations
 
 - The current datasets are synthetic and do not represent real insurance company records.
 - Fraud detection currently uses rule-based scoring rather than a trained machine learning classifier.
