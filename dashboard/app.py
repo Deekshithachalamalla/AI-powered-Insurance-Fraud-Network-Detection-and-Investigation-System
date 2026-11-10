@@ -7,7 +7,10 @@ import sqlite3
 import networkx as nx
 from pathlib import Path
 
-# Page configuration
+# ==================================================
+# PAGE CONFIGURATION
+# ==================================================
+
 st.set_page_config(
     page_title="Insurance Fraud Detection System",
     page_icon="🔍",
@@ -22,16 +25,33 @@ st.title("🔍 AI-Powered Insurance Fraud Network Detection")
 st.write("Insurance Claims Risk Analysis and Investigation Dashboard")
 
 
-# Load database data
+# ==================================================
+# LOAD DATABASE DATA
+# ==================================================
+
 @st.cache_data
 def load_data():
+
     connection = sqlite3.connect(DB_PATH)
 
-    fraud = pd.read_sql("SELECT * FROM fraud_results", connection)
-    investigations = pd.read_sql("SELECT * FROM investigations", connection)
-    claims = pd.read_sql("SELECT * FROM claims", connection)
+    fraud = pd.read_sql(
+        "SELECT * FROM fraud_results",
+        connection
+    )
+
+    investigations = pd.read_sql(
+        "SELECT * FROM investigations",
+        connection
+    )
+
+    claims = pd.read_sql(
+        "SELECT * FROM claims",
+        connection
+    )
+
     financial_exceptions = pd.read_sql(
-        "SELECT * FROM financial_exceptions", connection
+        "SELECT * FROM financial_exceptions",
+        connection
     )
 
     connection.close()
@@ -42,7 +62,10 @@ def load_data():
 fraud, investigations, claims, financial_exceptions = load_data()
 
 
-# Dashboard tabs
+# ==================================================
+# DASHBOARD TABS
+# ==================================================
+
 analysis_tab, network_tab = st.tabs([
     "📊 Fraud Analysis & Investigation",
     "🕸️ Fraud Network Visualization"
@@ -66,12 +89,21 @@ with analysis_tab:
         default=["Low", "Medium", "High"]
     )
 
-    filtered = fraud[fraud["risk_level"].isin(risk_options)]
+    filtered = fraud[
+        fraud["risk_level"].isin(risk_options)
+    ]
 
-    # Main metrics
+    # Main dashboard metrics
     total_claims = len(fraud)
-    suspicious_claims = (fraud["risk_score"] >= 30).sum()
-    high_risk = (fraud["risk_level"] == "High").sum()
+
+    suspicious_claims = (
+        fraud["risk_score"] >= 30
+    ).sum()
+
+    high_risk = (
+        fraud["risk_level"] == "High"
+    ).sum()
+
     total_investigations = len(investigations)
 
     col1, col2, col3, col4 = st.columns(4)
@@ -83,11 +115,22 @@ with analysis_tab:
 
     st.divider()
 
-    # Risk distribution
+    # ----------------------------------------------
+    # CLAIM RISK DISTRIBUTION
+    # ----------------------------------------------
+
     st.subheader("Claim Risk Distribution")
 
-    risk_counts = fraud["risk_level"].value_counts().reset_index()
-    risk_counts.columns = ["Risk Level", "Number of Claims"]
+    risk_counts = (
+        fraud["risk_level"]
+        .value_counts()
+        .reset_index()
+    )
+
+    risk_counts.columns = [
+        "Risk Level",
+        "Number of Claims"
+    ]
 
     fig = px.pie(
         risk_counts,
@@ -97,9 +140,15 @@ with analysis_tab:
         hole=0.4
     )
 
-    st.plotly_chart(fig, use_container_width=True)
+    st.plotly_chart(
+        fig,
+        use_container_width=True
+    )
 
-    # Risk score chart
+    # ----------------------------------------------
+    # RISK SCORE ANALYSIS
+    # ----------------------------------------------
+
     st.subheader("Risk Score Analysis")
 
     fig2 = px.histogram(
@@ -113,12 +162,20 @@ with analysis_tab:
         }
     )
 
-    st.plotly_chart(fig2, use_container_width=True)
+    st.plotly_chart(
+        fig2,
+        use_container_width=True
+    )
 
-    # Suspicious claims
+    # ----------------------------------------------
+    # SUSPICIOUS CLAIMS
+    # ----------------------------------------------
+
     st.subheader("Suspicious Claims")
 
-    suspicious = filtered[filtered["risk_score"] >= 30]
+    suspicious = filtered[
+        filtered["risk_score"] >= 30
+    ]
 
     st.dataframe(
         suspicious[
@@ -136,7 +193,10 @@ with analysis_tab:
         hide_index=True
     )
 
-    # Investigation records
+    # ----------------------------------------------
+    # INVESTIGATION MANAGEMENT
+    # ----------------------------------------------
+
     st.subheader("Investigation Management")
 
     st.dataframe(
@@ -145,27 +205,47 @@ with analysis_tab:
         hide_index=True
     )
 
-    # Financial anomaly detection
+    # ----------------------------------------------
+    # FINANCIAL ANOMALY DETECTION
+    # ----------------------------------------------
+
     st.divider()
+
     st.subheader("Financial Anomaly Detection")
 
     total_exceptions = len(financial_exceptions)
 
     duplicate_invoices = (
-        financial_exceptions["exception_type"] == "Duplicate Invoice"
+        financial_exceptions["exception_type"]
+        == "Duplicate Invoice"
     ).sum()
 
     excess_payments = (
-        financial_exceptions["exception_type"] == "Excess Payment"
+        financial_exceptions["exception_type"]
+        == "Excess Payment"
     ).sum()
 
     col1, col2, col3 = st.columns(3)
 
-    col1.metric("Total Financial Exceptions", total_exceptions)
-    col2.metric("Duplicate Invoices", int(duplicate_invoices))
-    col3.metric("Excess Payments", int(excess_payments))
+    col1.metric(
+        "Total Financial Exceptions",
+        total_exceptions
+    )
 
-    # Financial exception investigation
+    col2.metric(
+        "Duplicate Invoices",
+        int(duplicate_invoices)
+    )
+
+    col3.metric(
+        "Excess Payments",
+        int(excess_payments)
+    )
+
+    # ----------------------------------------------
+    # FINANCIAL EXCEPTION INVESTIGATION
+    # ----------------------------------------------
+
     st.subheader("Financial Exception Investigation")
 
     st.dataframe(
@@ -184,12 +264,24 @@ with analysis_tab:
         )
 
         selected_row = financial_exceptions[
-            financial_exceptions["investigation_id"] == selected_id
+            financial_exceptions["investigation_id"]
+            == selected_id
         ].iloc[0]
 
-        st.write("**Exception Type:**", selected_row["exception_type"])
-        st.write("**Claim ID:**", selected_row["claim_id"])
-        st.write("**Description:**", selected_row["description"])
+        st.write(
+            "**Exception Type:**",
+            selected_row["exception_type"]
+        )
+
+        st.write(
+            "**Claim ID:**",
+            selected_row["claim_id"]
+        )
+
+        st.write(
+            "**Description:**",
+            selected_row["description"]
+        )
 
         statuses = [
             "Open",
@@ -204,24 +296,28 @@ with analysis_tab:
         selected_status = st.selectbox(
             "Choose New Status",
             statuses,
-            index=statuses.index(current_status)
-            if current_status in statuses else 0
+            index=(
+                statuses.index(current_status)
+                if current_status in statuses
+                else 0
+            )
         )
 
         if st.button("Save Investigation Status"):
 
             financial_exceptions.loc[
-                financial_exceptions["investigation_id"] == selected_id,
+                financial_exceptions["investigation_id"]
+                == selected_id,
                 "status"
             ] = selected_status
 
-            # Save to CSV
+            # Save changes to CSV
             financial_exceptions.to_csv(
                 EXCEPTIONS_PATH,
                 index=False
             )
 
-            # Save to SQLite
+            # Save changes to SQLite
             connection = sqlite3.connect(DB_PATH)
 
             financial_exceptions.to_sql(
@@ -236,13 +332,17 @@ with analysis_tab:
             st.cache_data.clear()
 
             st.success(
-                f"Investigation {selected_id} updated to {selected_status}!"
+                f"Investigation {selected_id} "
+                f"updated to {selected_status}!"
             )
 
             st.rerun()
 
     else:
-        st.info("No financial exceptions are currently available.")
+
+        st.info(
+            "No financial exceptions are currently available."
+        )
 
 
 # ==================================================
@@ -259,22 +359,31 @@ with network_tab:
 
         if not edges.empty:
 
+            # --------------------------------------
+            # CREATE NETWORK GRAPH
+            # --------------------------------------
+
             graph = nx.Graph()
 
             for _, row in edges.iterrows():
+
                 graph.add_edge(
                     row["source"],
                     row["target"],
                     relationship=row["relationship"]
                 )
 
+            # Calculate node positions
             positions = nx.spring_layout(
                 graph,
                 seed=42,
                 k=0.5
             )
 
-            # Create network edges
+            # --------------------------------------
+            # CREATE NETWORK EDGES
+            # --------------------------------------
+
             edge_x = []
             edge_y = []
 
@@ -283,18 +392,33 @@ with network_tab:
                 x0, y0 = positions[source]
                 x1, y1 = positions[target]
 
-                edge_x.extend([x0, x1, None])
-                edge_y.extend([y0, y1, None])
+                edge_x.extend([
+                    x0,
+                    x1,
+                    None
+                ])
+
+                edge_y.extend([
+                    y0,
+                    y1,
+                    None
+                ])
 
             edge_trace = go.Scatter(
                 x=edge_x,
                 y=edge_y,
                 mode="lines",
-                line=dict(width=0.7, color="#999999"),
+                line=dict(
+                    width=0.7,
+                    color="#999999"
+                ),
                 hoverinfo="none"
             )
 
-            # Create network nodes
+            # --------------------------------------
+            # CREATE NETWORK NODES
+            # --------------------------------------
+
             node_x = []
             node_y = []
             node_text = []
@@ -306,34 +430,58 @@ with network_tab:
 
                 node_x.append(x)
                 node_y.append(y)
+
                 node_text.append(str(node))
 
+                # Node colors based on entity type
                 if str(node).startswith("CLM"):
+
                     node_colors.append("orange")
+
                 elif str(node).startswith("PRV"):
+
                     node_colors.append("red")
+
                 elif str(node).startswith("POL"):
+
                     node_colors.append("green")
+
                 else:
+
                     node_colors.append("blue")
+
+            # --------------------------------------
+            # DISPLAY NODES WITHOUT PERMANENT LABELS
+            # --------------------------------------
 
             node_trace = go.Scatter(
                 x=node_x,
                 y=node_y,
-                mode="markers+text",
-                text=node_text,
-                textposition="top center",
+                mode="markers",
                 hovertext=node_text,
-                hoverinfo="text",
+                hovertemplate=(
+                    "<b>Node ID:</b> %{hovertext}"
+                    "<extra></extra>"
+                ),
                 marker=dict(
                     size=9,
                     color=node_colors,
-                    line=dict(width=1, color="white")
+                    line=dict(
+                        width=1,
+                        color="white"
+                    )
                 )
             )
 
+            # --------------------------------------
+            # CREATE FINAL NETWORK FIGURE
+            # --------------------------------------
+
             figure = go.Figure(
-                data=[edge_trace, node_trace]
+                data=[
+                    edge_trace,
+                    node_trace
+                ]
             )
 
             figure.update_layout(
@@ -341,9 +489,18 @@ with network_tab:
                 showlegend=False,
                 hovermode="closest",
                 height=700,
-                margin=dict(l=10, r=10, t=50, b=10),
-                xaxis=dict(visible=False),
-                yaxis=dict(visible=False)
+                margin=dict(
+                    l=10,
+                    r=10,
+                    t=50,
+                    b=10
+                ),
+                xaxis=dict(
+                    visible=False
+                ),
+                yaxis=dict(
+                    visible=False
+                )
             )
 
             st.plotly_chart(
@@ -351,7 +508,10 @@ with network_tab:
                 use_container_width=True
             )
 
-            # Network statistics
+            # --------------------------------------
+            # NETWORK STATISTICS
+            # --------------------------------------
+
             st.subheader("Network Statistics")
 
             col1, col2, col3 = st.columns(3)
@@ -371,7 +531,10 @@ with network_tab:
                 nx.number_connected_components(graph)
             )
 
-            # Relationship records
+            # --------------------------------------
+            # RELATIONSHIP RECORDS
+            # --------------------------------------
+
             st.subheader("Relationship Records")
 
             st.dataframe(
@@ -386,16 +549,23 @@ with network_tab:
             )
 
         else:
-            st.warning("No relationship records available.")
+
+            st.warning(
+                "No relationship records available."
+            )
 
     else:
+
         st.error(
             "Relationship data not found. "
             "Run python src/relationship_builder.py first."
         )
 
 
-# Footer
+# ==================================================
+# FOOTER
+# ==================================================
+
 st.divider()
 
 st.caption(
