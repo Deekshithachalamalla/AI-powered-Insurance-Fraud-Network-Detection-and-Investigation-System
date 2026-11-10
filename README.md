@@ -1,11 +1,8 @@
-
 # AI-Powered Insurance Fraud Network Detection and Investigation System
 
-An end-to-end insurance fraud detection and investigation platform that analyzes insurance claims, identifies suspicious patterns, detects financial anomalies, and visualizes relationships between claimants, policies, providers, and claims.
+An end-to-end insurance fraud detection and investigation platform that analyzes insurance claims, identifies suspicious patterns, detects financial anomalies, and visualizes relationships between claimants, policies, providers, incidents, and claims.
 
-The system uses explainable rule-based risk scoring, relationship network analysis, financial validation, and an interactive Streamlit dashboard to help investigators prioritize suspicious cases.
-
----
+The system combines explainable rule-based risk scoring, relationship network analysis, financial validation, investigation management, audit history, and an interactive Streamlit dashboard to help investigators prioritize suspicious cases.
 
 ## 1. Problem Statement
 
@@ -13,36 +10,35 @@ Insurance fraud can involve suspicious claim patterns, duplicate invoices, exces
 
 Traditional claim-by-claim reviews may fail to identify relationships across multiple records.
 
-This project addresses the problem by building a centralized system that:
+This project addresses these challenges by building a centralized system that:
 
 - Analyzes insurance claims.
 - Identifies suspicious claim patterns.
-- Assigns risk scores to claims.
-- Detects duplicate invoices and excess payments.
-- Builds a relationship network.
-- Supports investigation tracking.
+- Assigns explainable risk scores to claims.
+- Detects duplicate invoices and excessive payments.
+- Builds relationship networks between connected entities.
+- Supports claim and financial exception investigations.
+- Maintains investigation status history and audit records.
 - Displays results through an interactive dashboard.
-
----
 
 ## 2. Project Objectives
 
-- Generate and manage structured insurance datasets.
+- Generate and manage structured synthetic insurance datasets.
 - Maintain relationships between claimants, policies, providers, incidents, and claims.
-- Validate primary keys and foreign keys.
-- Detect suspicious claims using rule-based logic.
+- Validate primary keys, foreign keys, and data integrity.
+- Detect suspicious claims using explainable rule-based logic.
 - Identify financial transaction anomalies.
-- Visualize relationships using NetworkX.
-- Manage investigation statuses.
-- Evaluate detection results using precision, recall, and F1-score.
-- Store processed information in SQLite.
-
----
+- Visualize entity relationships using NetworkX.
+- Manage investigation statuses and record status changes.
+- Evaluate detection results using precision, recall, and F1-score where the available labels support meaningful evaluation.
+- Store structured information in an SQLite database.
 
 ## 3. Key Features
 
-### A. Insurance Data Generation
-Creates synthetic datasets for:
+### A. Synthetic Insurance Data Generation
+
+Generates structured datasets for:
+
 - Claimants
 - Policies
 - Providers
@@ -52,28 +48,34 @@ Creates synthetic datasets for:
 - Payments
 
 ### B. Data Validation
+
+Validates data integrity through:
+
 - Primary key uniqueness checks.
 - Foreign key validation.
 - Missing-value checks.
-- Data integrity verification.
+- Claimant-policy consistency checks.
+- Financial amount validation.
+- Investigation history validation.
+- Relationship network endpoint validation.
 
 ### C. Relationship Network Analysis
 
-Uses NetworkX to connect:
+Uses NetworkX to create connections between:
+
 - Claimants
 - Policies
 - Providers
+- Incidents
 - Claims
+- Invoices
+- Payments
 
-Relationships include:
-- OWNS
-- SUBMITTED
-- COVERED_BY
-- HANDLED_BY
+The network helps identify entities connected through shared information and transaction relationships.
 
-### D. Rule-Based Fraud Detection
+### D. Explainable Rule-Based Fraud Detection
 
-The system assigns risk scores using configurable rules:
+The system assigns risk scores using configurable detection rules.
 
 | Detection Rule | Risk Score |
 |---|---:|
@@ -84,27 +86,42 @@ The system assigns risk scores using configurable rules:
 | Provider has at least 12 claims | +20 |
 | Provider connected to at least 8 distinct claimants | +40 |
 
-The final score is capped at 100.
+The final risk score is capped at 100.
 
-Risk categories:
+**Risk Categories**
+
 - Low: 0–29
 - Medium: 30–59
 - High: 60–100
 
-These are risk indicators for investigation, not proof of fraud.
+Each suspicious claim can include reasons explaining why it received its risk score.
+
+Risk indicators help prioritize investigations; they are not proof of fraud.
 
 ### E. Financial Anomaly Detection
 
-Two financial validation rules are implemented:
+Implements financial validation rules to identify:
 
-1. Duplicate invoice ID detection.
-2. Payment amount exceeding the approved claim amount.
+1. Duplicate invoice IDs across different claims.
+2. Payments exceeding the approved claim amount.
 
-Detected exceptions receive unique investigation IDs and an initial Open status.
+Detected financial exceptions receive unique investigation IDs and an initial Open status.
 
-### F. Investigation Management
+### F. Claim Investigation Management
 
-Investigators can update financial exception statuses through the dashboard:
+Investigators can update claim investigation statuses through the dashboard:
+
+- Open
+- Under Review
+- Confirmed Fraud
+- False Positive
+- Closed
+
+The system records investigation status changes, timestamps, and reasons in its audit history.
+
+### G. Financial Exception Management
+
+Financial exceptions have a separate investigation workflow:
 
 - Open
 - Under Review
@@ -112,24 +129,26 @@ Investigators can update financial exception statuses through the dashboard:
 - False Positive
 - Closed
 
-Status updates are saved to CSV and SQLite.
+Status changes and their associated reasons are recorded in the database audit history.
 
-### G. Interactive Dashboard
+### H. Interactive Streamlit Dashboard
 
 Built using Streamlit and Plotly.
 
-Dashboard features:
+Dashboard capabilities include:
+
 - Total claims and suspicious claims.
 - High-risk claim metrics.
 - Risk distribution charts.
 - Risk score analysis.
 - Suspicious claims table.
-- Investigation records.
-- Financial exception metrics.
+- Claim investigation management.
+- Financial anomaly metrics.
+- Financial exception management.
 - Investigation status updates.
+- Investigation audit history.
 - Fraud relationship network visualization.
-
----
+- Network statistics.
 
 ## 4. Technologies Used
 
@@ -146,12 +165,10 @@ Dashboard features:
 | Pytest | Automated testing |
 | Git and GitHub | Version control |
 
----
-
 ## 5. Project Structure
 
 ```text
-AI-powered Insurance Fraud Network Detection and Investigation System/
+AI-powered-Insurance-Fraud-Network-Detection-and-Investigation-System/
 │
 ├── data/
 │   ├── raw/
@@ -183,25 +200,25 @@ AI-powered Insurance Fraud Network Detection and Investigation System/
 │   ├── data_dictionary.md
 │   └── schema.md
 │
+├── screenshots/
+│
 ├── requirements.txt
 ├── README.md
 └── .gitignore
 ```
-
----
 
 ## 6. Installation and Setup
 
 ### Step 1: Clone the repository
 
 ```bash
-git clone YOUR_GITHUB_REPOSITORY_URL
+git clone https://github.com/Deekshithachalamalla/AI-powered-Insurance-Fraud-Network-Detection-and-Investigation-System.git
 ```
 
 ### Step 2: Navigate to the project directory
 
 ```bash
-cd "AI-powered Insurance Fraud Network Detection and Investigation System"
+cd AI-powered-Insurance-Fraud-Network-Detection-and-Investigation-System
 ```
 
 ### Step 3: Create a virtual environment
@@ -224,131 +241,155 @@ Windows PowerShell:
 pip install -r requirements.txt
 ```
 
----
-
 ## 7. Running the Project
 
-Run the scripts from the project root in the following order.
+Run the following commands from the project root in the specified order.
 
-### Generate synthetic data
+**Important:** These commands regenerate synthetic data and investigation outputs. Running them again can reset previously generated investigation statuses.
+
+### Step 1: Generate synthetic insurance data
 
 ```bash
 python src/data_generator.py
 ```
 
-### Validate data
-
-```bash
-python src/data_validation.py
-```
-
-### Inject sample fraud patterns
-
-```bash
-python src/inject_fraud_patterns.py
-```
-
-### Build relationship network
-
-```bash
-python src/relationship_builder.py
-```
-
-### Detect suspicious claims
-
-```bash
-python src/fraud_detection.py
-```
-
-### Create investigations
-
-```bash
-python src/investigation.py
-```
-
-### Generate invoice and payment data
+### Step 2: Generate invoice and payment data
 
 ```bash
 python src/financial_data.py
 ```
 
-### Inject financial anomalies
+### Step 3: Inject sample fraud patterns
+
+```bash
+python src/inject_fraud_patterns.py
+```
+
+### Step 4: Inject financial anomalies
 
 ```bash
 python src/inject_financial_anomalies.py
 ```
 
-### Detect financial anomalies
+### Step 5: Build the relationship network
+
+```bash
+python src/relationship_builder.py
+```
+
+### Step 6: Detect suspicious claims
+
+```bash
+python src/fraud_detection.py
+```
+
+### Step 7: Detect financial anomalies
 
 ```bash
 python src/financial_anomaly_detection.py
 ```
 
-### Evaluate detection results
+### Step 8: Create claim investigations
 
 ```bash
-python src/evaluate_model.py
+python src/investigation.py
 ```
 
-### Create SQLite database
+### Step 9: Create the SQLite database
 
 ```bash
 python src/database.py
 ```
 
-### Launch the main dashboard
+### Step 10: Validate the generated data
+
+```bash
+python src/data_validation.py
+```
+
+### Step 11: Run automated tests
+
+```bash
+python -m pytest tests/ -v
+```
+
+### Step 12: Evaluate detection results
+
+```bash
+python src/evaluate_model.py
+```
+
+### Step 13: Launch the dashboard
 
 ```bash
 python -m streamlit run dashboard/app.py
 ```
 
----
+The dashboard will open in your browser.
 
 ## 8. Current Demonstration Results
 
-The current synthetic demonstration dataset contains:
+The current synthetic demonstration dataset produces the following results:
 
 | Metric | Result |
 |---|---:|
 | Claimants | 100 |
 | Policies | 150 |
 | Providers | 30 |
+| Incidents | 200 |
 | Claims | 200 |
-| Suspicious claims | 143 |
-| High-risk claims | 65 |
-| Investigations | 143 |
+| Suspicious claims | 167 |
+| High-risk claims | 96 |
+| Investigations | 167 |
 | Financial exceptions | 3 |
-| Duplicate invoice records | 2 |
-| Excess payment records | 1 |
-| Relationship network nodes | 477 |
-| Relationship network edges | 750 |
-| Connected components in edge-based graph | 2 |
+| Duplicate invoice exceptions | 2 |
+| Excess payment exceptions | 1 |
+| Relationship network nodes | 1,079 |
+| Relationship network edges | 1,550 |
+| Connected groups | 34 |
+| SQLite database tables | 14 |
 
 ### Automated Testing
 
-Pytest results:
+Latest verified Pytest results:
 
 ```text
-6 passed in 0.97s
+12 passed in 1.03s
 ```
 
-All six implemented automated tests passed.
+All 12 implemented automated tests passed in the latest test run.
+
+### Data Validation
+
+Latest verified validation results:
+
+- Data validation errors: 0
+- Expected warnings: 1
+- The expected warning relates to an intentionally duplicated invoice ID used for anomaly detection.
 
 ### Detection Evaluation
 
-The evaluation script reported:
+The project includes an evaluation script that calculates metrics such as:
 
-- Precision: 1.00
-- Recall: 1.00
-- F1-score: 1.00
+- Precision
+- Recall
+- F1-score
 
-**Important:** These metrics are based on only three labelled positive examples. They should not be interpreted as proof of 100% accuracy on unseen insurance claims.
+The synthetic dataset currently has 16 positive ground-truth labels after injecting fraud and financial anomaly patterns.
 
----
+Evaluation metrics should be interpreted cautiously when the available labelled examples or class coverage are insufficient. These results do not establish real-world fraud detection accuracy.
 
 ## 9. Database
 
-The system uses SQLite to store:
+The system uses SQLite for structured data storage.
+
+Database location:
+
+```text
+data/insurance_fraud.db
+```
+
+The database contains 14 tables covering:
 
 - Claimants
 - Policies
@@ -361,62 +402,64 @@ The system uses SQLite to store:
 - Invoices
 - Payments
 - Financial exceptions
+- Investigation and audit-related records
 
-Database file:
+The database uses primary key and foreign key constraints to maintain data integrity.
 
-```text
-data/insurance_fraud.db
-```
+## 10. Live Demo
 
----
+**Try the deployed application:**
 
-## 10. Future Enhancements
+[Open Insurance Fraud Detection Dashboard](https://bb5cdkfam5jxp4ivv894lp.streamlit.app/)
 
-- Machine learning-based fraud classification.
-- Advanced graph-based fraud detection.
-- Interactive investigation assignment.
-- Role-based access control.
-- Real-time claim monitoring.
-- More financial anomaly detection rules.
-- Larger labelled datasets for reliable evaluation.
-- Explainable AI reports for investigators.
+Explore claim risk scoring, suspicious claim investigations, financial anomaly detection, investigation history, and fraud relationship network visualization.
 
----
-
-## 11. Limitations
-
-- The current datasets are synthetic.
-- Fraud detection uses rule-based scoring rather than a trained machine learning classifier.
-- Only three positive fraud examples are currently labelled for evaluation.
-- Detection results require validation on larger real-world datasets.
-- Risk flags indicate suspicious activity and do not establish confirmed fraud.
-
-
-## Live Demo
-
-**Try the application:** [Open Insurance Fraud Detection Dashboard](https://bb5cdkfam5jxp4ivv894lp.streamlit.app/)
-
-Explore fraud risk scoring, suspicious claim investigations, financial anomaly detection, and fraud network visualization.
-
-## Project Screenshots
+## 11. Project Screenshots
 
 ### 1. Dashboard Overview
+
 ![Dashboard Overview](screenshots/dashboard_overview.png)
 
 ### 2. Claim Risk Distribution
+
 ![Risk Distribution](screenshots/risk_distribution.png)
 
 ### 3. Risk Score Analysis
+
 ![Risk Score Analysis](screenshots/risk_score_analysis.png)
 
 ### 4. Suspicious Claims and Investigations
+
 ![Suspicious Claims and Investigations](screenshots/suspicious_claims_investigations.png)
 
 ### 5. Financial Anomaly Detection
+
 ![Financial Anomaly Detection](screenshots/financial_anomaly_detection.png)
 
 ### 6. Fraud Network Visualization
+
 ![Fraud Network Graph](screenshots/fraud_network_graph.png)
 
 ### 7. Network Statistics
+
 ![Network Statistics](screenshots/network_statistics.png)
+
+## 12. Future Enhancements
+
+- Machine learning-based fraud classification.
+- Advanced graph-based fraud detection.
+- Real-time claim monitoring.
+- Interactive investigator assignment.
+- Role-based access control.
+- Additional financial anomaly detection rules.
+- Larger labelled datasets for reliable model evaluation.
+- Explainable AI reports for investigators.
+
+## 13. Limitations
+
+- The current datasets are synthetic and do not represent real insurance company records.
+- Fraud detection currently uses rule-based scoring rather than a trained machine learning classifier.
+- Evaluation results depend on the available synthetic ground-truth labels.
+- Detection performance requires validation on larger, representative real-world datasets.
+- Risk flags indicate suspicious activity and do not establish confirmed fraud.
+
