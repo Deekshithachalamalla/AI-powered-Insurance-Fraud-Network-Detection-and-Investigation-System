@@ -392,6 +392,12 @@ data/insurance_fraud.db
 - Risk flags indicate suspicious activity and do not establish confirmed fraud.
 
 
+## Live Demo
+
+**Try the application:** [Open Insurance Fraud Detection Dashboard](https://bb5cdkfam5jxp4ivv894lp.streamlit.app/)
+
+Explore fraud risk scoring, suspicious claim investigations, financial anomaly detection, and fraud network visualization.
+
 ## Project Screenshots
 
 ### 1. Dashboard Overview
