@@ -6,6 +6,7 @@ import plotly.graph_objects as go
 import sqlite3
 import networkx as nx
 from pathlib import Path
+from datetime import datetime
 
 # ==================================================
 # PAGE CONFIGURATION
@@ -18,8 +19,17 @@ st.set_page_config(
 )
 
 DB_PATH = Path("data/insurance_fraud.db")
-EXCEPTIONS_PATH = Path("data/processed/financial_exceptions.csv")
-EDGES_PATH = Path("data/processed/relationship_edges.csv")
+PROCESSED_DIR = Path("data/processed")
+
+EXCEPTIONS_PATH = PROCESSED_DIR / "financial_exceptions.csv"
+INVESTIGATIONS_PATH = PROCESSED_DIR / "investigations.csv"
+EXCEPTION_HISTORY_PATH = (
+    PROCESSED_DIR / "financial_exception_status_history.csv"
+)
+INVESTIGATION_HISTORY_PATH = (
+    PROCESSED_DIR / "investigation_status_history.csv"
+)
+EDGES_PATH = PROCESSED_DIR / "relationship_edges.csv"
 
 st.title("🔍 AI-Powered Insurance Fraud Network Detection")
 st.write("Insurance Claims Risk Analysis and Investigation Dashboard")
@@ -32,34 +42,151 @@ st.write("Insurance Claims Risk Analysis and Investigation Dashboard")
 @st.cache_data
 def load_data():
 
-    connection = sqlite3.connect(DB_PATH)
+    if not DB_PATH.exists():
+        raise FileNotFoundError(
+            "Database not found. Please run the project pipeline first."
+        )
 
-    fraud = pd.read_sql(
-        "SELECT * FROM fraud_results",
-        connection
+    with sqlite3.connect(DB_PATH) as connection:
+
+        fraud = pd.read_sql(
+            "SELECT * FROM fraud_results", connection
+        )
+
+        investigations = pd.read_sql(
+            "SELECT * FROM investigations", connection
+        )
+
+        claims = pd.read_sql(
+            "SELECT * FROM claims", connection
+        )
+
+        financial_exceptions = pd.read_sql(
+            "SELECT * FROM financial_exceptions", connection
+        )
+
+        investigation_history = pd.read_sql(
+            "SELECT * FROM investigation_status_history",
+            connection
+        )
+
+        exception_history = pd.read_sql(
+            "SELECT * FROM financial_exception_status_history",
+            connection
+        )
+
+    return (
+        fraud,
+        investigations,
+        claims,
+        financial_exceptions,
+        investigation_history,
+        exception_history
     )
 
-    investigations = pd.read_sql(
-        "SELECT * FROM investigations",
-        connection
-    )
 
-    claims = pd.read_sql(
-        "SELECT * FROM claims",
-        connection
-    )
+try:
+    (
+        fraud,
+        investigations,
+        claims,
+        financial_exceptions,
+        investigation_history,
+        exception_history
+    ) = load_data()
 
-    financial_exceptions = pd.read_sql(
-        "SELECT * FROM financial_exceptions",
-        connection
-    )
-
-    connection.close()
-
-    return fraud, investigations, claims, financial_exceptions
+except Exception as error:
+    st.error(f"Unable to load dashboard data: {error}")
+    st.stop()
 
 
-fraud, investigations, claims, financial_exceptions = load_data()
+# ==================================================
+# STATUS UPDATE FUNCTION
+# ==================================================
+
+def update_status(
+    table_name,
+    history_table,
+    id_column,
+    record_id,
+    old_status,
+    new_status,
+    reason,
+    csv_path
+):
+
+    if old_status == new_status:
+        st.warning("Please select a different status.")
+        return False
+
+    changed_at = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    changed_by = "Risk Analyst"
+
+    try:
+
+        with sqlite3.connect(DB_PATH) as connection:
+
+            connection.execute("PRAGMA foreign_keys = ON")
+
+            # Update current status without replacing the table
+            cursor = connection.execute(
+                f"""
+                UPDATE {table_name}
+                SET {"status" if table_name == "financial_exceptions" else "investigation_status"} = ?
+                WHERE {id_column} = ?
+                """,
+                (new_status, record_id)
+            )
+
+            if cursor.rowcount != 1:
+                raise ValueError("Investigation record not found.")
+
+            # Record status change in audit history
+            connection.execute(
+                f"""
+                INSERT INTO {history_table}
+                (
+                    investigation_id,
+                    old_status,
+                    new_status,
+                    changed_by,
+                    changed_at,
+                    change_reason
+                )
+                VALUES (?, ?, ?, ?, ?, ?)
+                """,
+                (
+                    record_id,
+                    old_status,
+                    new_status,
+                    changed_by,
+                    changed_at,
+                    reason
+                )
+            )
+
+        # Update corresponding CSV file
+        dataframe = pd.read_csv(csv_path)
+
+        status_column = (
+            "status"
+            if table_name == "financial_exceptions"
+            else "investigation_status"
+        )
+
+        dataframe.loc[
+            dataframe[id_column] == record_id,
+            status_column
+        ] = new_status
+
+        dataframe.to_csv(csv_path, index=False)
+
+        st.cache_data.clear()
+        return True
+
+    except Exception as error:
+        st.error(f"Status update failed: {error}")
+        return False
 
 
 # ==================================================
@@ -93,17 +220,10 @@ with analysis_tab:
         fraud["risk_level"].isin(risk_options)
     ]
 
-    # Main dashboard metrics
+    # Dashboard metrics
     total_claims = len(fraud)
-
-    suspicious_claims = (
-        fraud["risk_score"] >= 30
-    ).sum()
-
-    high_risk = (
-        fraud["risk_level"] == "High"
-    ).sum()
-
+    suspicious_claims = int((fraud["risk_score"] >= 30).sum())
+    high_risk = int((fraud["risk_level"] == "High").sum())
     total_investigations = len(investigations)
 
     col1, col2, col3, col4 = st.columns(4)
@@ -140,10 +260,7 @@ with analysis_tab:
         hole=0.4
     )
 
-    st.plotly_chart(
-        fig,
-        use_container_width=True
-    )
+    st.plotly_chart(fig, use_container_width=True)
 
     # ----------------------------------------------
     # RISK SCORE ANALYSIS
@@ -162,10 +279,7 @@ with analysis_tab:
         }
     )
 
-    st.plotly_chart(
-        fig2,
-        use_container_width=True
-    )
+    st.plotly_chart(fig2, use_container_width=True)
 
     # ----------------------------------------------
     # SUSPICIOUS CLAIMS
@@ -194,10 +308,11 @@ with analysis_tab:
     )
 
     # ----------------------------------------------
-    # INVESTIGATION MANAGEMENT
+    # REGULAR INVESTIGATION MANAGEMENT
     # ----------------------------------------------
 
-    st.subheader("Investigation Management")
+    st.divider()
+    st.subheader("Claim Investigation Management")
 
     st.dataframe(
         investigations,
@@ -205,12 +320,74 @@ with analysis_tab:
         hide_index=True
     )
 
+    if not investigations.empty:
+
+        selected_investigation = st.selectbox(
+            "Select Claim Investigation",
+            investigations["investigation_id"].tolist(),
+            key="claim_investigation"
+        )
+
+        selected_row = investigations[
+            investigations["investigation_id"]
+            == selected_investigation
+        ].iloc[0]
+
+        st.write("**Claim ID:**", selected_row["claim_id"])
+        st.write(
+            "**Current Status:**",
+            selected_row["investigation_status"]
+        )
+
+        investigation_statuses = [
+            "Open",
+            "Under Review",
+            "Confirmed Fraud",
+            "False Positive",
+            "Closed"
+        ]
+
+        current_status = selected_row["investigation_status"]
+
+        new_status = st.selectbox(
+            "Choose Investigation Status",
+            investigation_statuses,
+            index=(
+                investigation_statuses.index(current_status)
+                if current_status in investigation_statuses
+                else 0
+            ),
+            key="claim_status"
+        )
+
+        investigation_reason = st.text_input(
+            "Reason for Status Change",
+            key="claim_reason"
+        )
+
+        if st.button("Update Claim Investigation"):
+
+            if not investigation_reason.strip():
+                st.warning("Please enter a reason for the change.")
+
+            elif update_status(
+                table_name="investigations",
+                history_table="investigation_status_history",
+                id_column="investigation_id",
+                record_id=selected_investigation,
+                old_status=current_status,
+                new_status=new_status,
+                reason=investigation_reason,
+                csv_path=INVESTIGATIONS_PATH
+            ):
+                st.success("Claim investigation status updated!")
+                st.rerun()
+
     # ----------------------------------------------
     # FINANCIAL ANOMALY DETECTION
     # ----------------------------------------------
 
     st.divider()
-
     st.subheader("Financial Anomaly Detection")
 
     total_exceptions = len(financial_exceptions)
@@ -227,20 +404,9 @@ with analysis_tab:
 
     col1, col2, col3 = st.columns(3)
 
-    col1.metric(
-        "Total Financial Exceptions",
-        total_exceptions
-    )
-
-    col2.metric(
-        "Duplicate Invoices",
-        int(duplicate_invoices)
-    )
-
-    col3.metric(
-        "Excess Payments",
-        int(excess_payments)
-    )
+    col1.metric("Total Financial Exceptions", total_exceptions)
+    col2.metric("Duplicate Invoices", int(duplicate_invoices))
+    col3.metric("Excess Payments", int(excess_payments))
 
     # ----------------------------------------------
     # FINANCIAL EXCEPTION INVESTIGATION
@@ -254,33 +420,31 @@ with analysis_tab:
         hide_index=True
     )
 
-    st.write("### Update Investigation Status")
-
     if not financial_exceptions.empty:
 
         selected_id = st.selectbox(
-            "Select Investigation ID",
-            financial_exceptions["investigation_id"].tolist()
+            "Select Financial Investigation",
+            financial_exceptions["investigation_id"].tolist(),
+            key="financial_investigation"
         )
 
-        selected_row = financial_exceptions[
-            financial_exceptions["investigation_id"]
-            == selected_id
+        selected_exception = financial_exceptions[
+            financial_exceptions["investigation_id"] == selected_id
         ].iloc[0]
 
         st.write(
             "**Exception Type:**",
-            selected_row["exception_type"]
+            selected_exception["exception_type"]
         )
 
         st.write(
             "**Claim ID:**",
-            selected_row["claim_id"]
+            selected_exception["claim_id"]
         )
 
         st.write(
             "**Description:**",
-            selected_row["description"]
+            selected_exception["description"]
         )
 
         statuses = [
@@ -291,58 +455,67 @@ with analysis_tab:
             "Closed"
         ]
 
-        current_status = selected_row["status"]
+        current_status = selected_exception["status"]
 
         selected_status = st.selectbox(
-            "Choose New Status",
+            "Choose Financial Exception Status",
             statuses,
             index=(
                 statuses.index(current_status)
                 if current_status in statuses
                 else 0
-            )
+            ),
+            key="financial_status"
         )
 
-        if st.button("Save Investigation Status"):
+        financial_reason = st.text_input(
+            "Reason for Financial Status Change",
+            key="financial_reason"
+        )
 
-            financial_exceptions.loc[
-                financial_exceptions["investigation_id"]
-                == selected_id,
-                "status"
-            ] = selected_status
+        if st.button("Save Financial Investigation Status"):
 
-            # Save changes to CSV
-            financial_exceptions.to_csv(
-                EXCEPTIONS_PATH,
-                index=False
-            )
+            if not financial_reason.strip():
+                st.warning("Please enter a reason for the change.")
 
-            # Save changes to SQLite
-            connection = sqlite3.connect(DB_PATH)
-
-            financial_exceptions.to_sql(
-                "financial_exceptions",
-                connection,
-                if_exists="replace",
-                index=False
-            )
-
-            connection.close()
-
-            st.cache_data.clear()
-
-            st.success(
-                f"Investigation {selected_id} "
-                f"updated to {selected_status}!"
-            )
-
-            st.rerun()
+            elif update_status(
+                table_name="financial_exceptions",
+                history_table="financial_exception_status_history",
+                id_column="investigation_id",
+                record_id=selected_id,
+                old_status=current_status,
+                new_status=selected_status,
+                reason=financial_reason,
+                csv_path=EXCEPTIONS_PATH
+            ):
+                st.success("Financial exception status updated!")
+                st.rerun()
 
     else:
+        st.info("No financial exceptions are currently available.")
 
-        st.info(
-            "No financial exceptions are currently available."
-        )
+    # ----------------------------------------------
+    # AUDIT HISTORY
+    # ----------------------------------------------
+
+    st.divider()
+    st.subheader("Investigation Audit History")
+
+    st.write("**Claim Investigation History**")
+
+    st.dataframe(
+        investigation_history,
+        use_container_width=True,
+        hide_index=True
+    )
+
+    st.write("**Financial Exception History**")
+
+    st.dataframe(
+        exception_history,
+        use_container_width=True,
+        hide_index=True
+    )
 
 
 # ==================================================
@@ -359,10 +532,6 @@ with network_tab:
 
         if not edges.empty:
 
-            # --------------------------------------
-            # CREATE NETWORK GRAPH
-            # --------------------------------------
-
             graph = nx.Graph()
 
             for _, row in edges.iterrows():
@@ -373,17 +542,13 @@ with network_tab:
                     relationship=row["relationship"]
                 )
 
-            # Calculate node positions
             positions = nx.spring_layout(
                 graph,
                 seed=42,
                 k=0.5
             )
 
-            # --------------------------------------
-            # CREATE NETWORK EDGES
-            # --------------------------------------
-
+            # Network edges
             edge_x = []
             edge_y = []
 
@@ -392,17 +557,8 @@ with network_tab:
                 x0, y0 = positions[source]
                 x1, y1 = positions[target]
 
-                edge_x.extend([
-                    x0,
-                    x1,
-                    None
-                ])
-
-                edge_y.extend([
-                    y0,
-                    y1,
-                    None
-                ])
+                edge_x.extend([x0, x1, None])
+                edge_y.extend([y0, y1, None])
 
             edge_trace = go.Scatter(
                 x=edge_x,
@@ -415,10 +571,7 @@ with network_tab:
                 hoverinfo="none"
             )
 
-            # --------------------------------------
-            # CREATE NETWORK NODES
-            # --------------------------------------
-
+            # Network nodes
             node_x = []
             node_y = []
             node_text = []
@@ -430,29 +583,19 @@ with network_tab:
 
                 node_x.append(x)
                 node_y.append(y)
-
                 node_text.append(str(node))
 
-                # Node colors based on entity type
                 if str(node).startswith("CLM"):
-
                     node_colors.append("orange")
 
                 elif str(node).startswith("PRV"):
-
                     node_colors.append("red")
 
                 elif str(node).startswith("POL"):
-
                     node_colors.append("green")
 
                 else:
-
                     node_colors.append("blue")
-
-            # --------------------------------------
-            # DISPLAY NODES WITHOUT PERMANENT LABELS
-            # --------------------------------------
 
             node_trace = go.Scatter(
                 x=node_x,
@@ -473,10 +616,6 @@ with network_tab:
                 )
             )
 
-            # --------------------------------------
-            # CREATE FINAL NETWORK FIGURE
-            # --------------------------------------
-
             figure = go.Figure(
                 data=[
                     edge_trace,
@@ -495,12 +634,8 @@ with network_tab:
                     t=50,
                     b=10
                 ),
-                xaxis=dict(
-                    visible=False
-                ),
-                yaxis=dict(
-                    visible=False
-                )
+                xaxis=dict(visible=False),
+                yaxis=dict(visible=False)
             )
 
             st.plotly_chart(
@@ -508,10 +643,7 @@ with network_tab:
                 use_container_width=True
             )
 
-            # --------------------------------------
-            # NETWORK STATISTICS
-            # --------------------------------------
-
+            # Network statistics
             st.subheader("Network Statistics")
 
             col1, col2, col3 = st.columns(3)
@@ -531,10 +663,6 @@ with network_tab:
                 nx.number_connected_components(graph)
             )
 
-            # --------------------------------------
-            # RELATIONSHIP RECORDS
-            # --------------------------------------
-
             st.subheader("Relationship Records")
 
             st.dataframe(
@@ -544,18 +672,14 @@ with network_tab:
             )
 
             st.caption(
-                "Blue: Claimants | Green: Policies | "
+                "Blue: Other entities | Green: Policies | "
                 "Red: Providers | Orange: Claims"
             )
 
         else:
-
-            st.warning(
-                "No relationship records available."
-            )
+            st.warning("No relationship records available.")
 
     else:
-
         st.error(
             "Relationship data not found. "
             "Run python src/relationship_builder.py first."

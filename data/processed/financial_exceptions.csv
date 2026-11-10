@@ -1,4 +1,4 @@
 investigation_id,exception_type,record_id,claim_id,description,status
-FIN-INV-0001,Duplicate Invoice,INV-2026-000001,CLM-2026-000001,Invoice ID is repeated,Under Review
-FIN-INV-0002,Duplicate Invoice,INV-2026-000001,CLM-2026-000002,Invoice ID is repeated,Open
-FIN-INV-0003,Excess Payment,PAY-2026-000001,CLM-2026-000001,Payment 139837.0 exceeds approved amount 39837,Open
+FIN-INV-0001,Duplicate Invoice,INV-PRV-PRV-000020-000001,CLM-2026-000001,Invoice ID is reused across different claims,Under Review
+FIN-INV-0002,Duplicate Invoice,INV-PRV-PRV-000020-000001,CLM-2026-000002,Invoice ID is reused across different claims,Open
+FIN-INV-0003,Excess Payment,PAY-2026-000001,CLM-2026-000001,Payment 390139.0 exceeds approved amount 290139,Open

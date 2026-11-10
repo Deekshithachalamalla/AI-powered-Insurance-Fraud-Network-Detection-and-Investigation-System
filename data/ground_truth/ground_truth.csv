@@ -1,4 +1,17 @@
 claim_id,is_fraud,fraud_pattern
-CLM-2026-000001,1,Shared provider network
-CLM-2026-000002,1,Shared phone and provider
+CLM-2026-000001,1,Shared provider network + Duplicate invoice across claimants + Payment exceeds approved amount
+CLM-2026-000002,1,Shared provider network + Duplicate invoice across claimants
 CLM-2026-000003,1,Shared provider network
+CLM-2026-000004,1,Shared provider network
+CLM-2026-000005,1,Shared provider network
+CLM-2026-000006,1,Shared provider network
+CLM-2026-000007,1,Shared provider network
+CLM-2026-000008,1,Shared provider network
+CLM-2026-000009,1,Shared provider network
+CLM-2026-000010,1,Shared provider network
+CLM-2026-000011,1,Shared provider network
+CLM-2026-000012,1,Shared provider network
+CLM-2026-000077,1,Shared claimant phone number
+CLM-2026-000091,1,Shared claimant phone number
+CLM-2026-000116,1,Shared claimant phone number
+CLM-2026-000193,1,Shared claimant phone number

@@ -4,19 +4,65 @@ from pathlib import Path
 
 DATA_DIR = Path("data/raw")
 OUTPUT_DIR = Path("data/processed")
+
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
 
 def detect_fraud():
     print("Starting fraud detection...\n")
 
+    # Load datasets
     claims = pd.read_csv(DATA_DIR / "claims.csv")
     claimants = pd.read_csv(DATA_DIR / "claimants.csv")
-    providers = pd.read_csv(DATA_DIR / "providers.csv")
 
-    # Start with zero risk points
+    # Validate required columns
+    required_claim_columns = {
+        "claim_id", "claimant_id", "provider_id",
+        "claim_amount", "approved_amount"
+    }
+
+    required_claimant_columns = {
+        "claimant_id", "phone"
+    }
+
+    if not required_claim_columns.issubset(claims.columns):
+        raise ValueError("Claims dataset is missing required columns.")
+
+    if not required_claimant_columns.issubset(claimants.columns):
+        raise ValueError("Claimants dataset is missing required columns.")
+
+    # Convert financial values to numeric
+    claims["claim_amount"] = pd.to_numeric(
+        claims["claim_amount"], errors="coerce"
+    )
+    claims["approved_amount"] = pd.to_numeric(
+        claims["approved_amount"], errors="coerce"
+    )
+
+    if claims[
+        ["claim_amount", "approved_amount"]
+    ].isna().any().any():
+        raise ValueError("Claim amounts contain missing or invalid values.")
+
+    if claims["claimant_id"].isna().any():
+        raise ValueError("Claims contain missing claimant IDs.")
+
+    if claims["provider_id"].isna().any():
+        raise ValueError("Claims contain missing provider IDs.")
+
+    # Initialize risk fields
     claims["risk_score"] = 0
     claims["risk_reasons"] = ""
+
+    def apply_rule(condition, points, reason):
+        """Apply a risk rule and record its explanation."""
+        condition = condition.fillna(False)
+
+        claims.loc[condition, "risk_score"] += points
+
+        claims.loc[condition, "risk_reasons"] += (
+            reason + "; "
+        )
 
     # Rule 1: Multiple claims from the same claimant
     claimant_counts = claims["claimant_id"].value_counts()
@@ -25,76 +71,76 @@ def detect_fraud():
         claims["claimant_id"].map(claimant_counts)
     )
 
-    claims.loc[
-        claims["claimant_claim_count"] >= 4, "risk_score"
-    ] += 30
-
-    claims.loc[
-        claims["claimant_claim_count"] >= 4, "risk_reasons"
-    ] += "Multiple claims by claimant; "
+    apply_rule(
+        claims["claimant_claim_count"] >= 4,
+        30,
+        "Multiple claims by claimant"
+    )
 
     # Rule 2: High claim amount
-    claims.loc[
-        claims["claim_amount"] >= 350000, "risk_score"
-    ] += 30
+    apply_rule(
+        claims["claim_amount"] >= 350000,
+        30,
+        "Unusually high claim amount"
+    )
 
-    claims.loc[
-        claims["claim_amount"] >= 350000, "risk_reasons"
-    ] += "Unusually high claim amount; "
-
-    # Rule 3: Requested amount exceeds approved amount significantly
+    # Rule 3: Large difference between requested and approved amounts
     claims["amount_difference"] = (
         claims["claim_amount"] - claims["approved_amount"]
     )
 
-    claims.loc[
-        claims["amount_difference"] >= 200000, "risk_score"
-    ] += 20
+    apply_rule(
+        claims["amount_difference"] >= 200000,
+        20,
+        "Large difference between requested and approved amount"
+    )
 
-    claims.loc[
-        claims["amount_difference"] >= 200000, "risk_reasons"
-    ] += "Large difference between requested and approved amount; "
+    # Rule 4: Shared phone numbers
+    # Ignore missing and blank phone numbers.
+    claimants["phone"] = (
+        claimants["phone"]
+        .astype("string")
+        .str.strip()
+    )
 
-    # Rule 4: Shared phone numbers between claimants
-    phone_counts = claimants["phone"].value_counts()
+    valid_phones = claimants[
+        claimants["phone"].notna()
+        & (claimants["phone"] != "")
+    ].copy()
 
-    claimants["shared_phone_count"] = (
-        claimants["phone"].map(phone_counts)
+    phone_counts = valid_phones["phone"].value_counts()
+
+    valid_phones["shared_phone_count"] = (
+        valid_phones["phone"].map(phone_counts)
     )
 
     shared_claimants = set(
-        claimants.loc[
-            claimants["shared_phone_count"] > 1, "claimant_id"
+        valid_phones.loc[
+            valid_phones["shared_phone_count"] > 1,
+            "claimant_id"
         ]
     )
 
-    claims.loc[
-        claims["claimant_id"].isin(shared_claimants), "risk_score"
-    ] += 20
+    apply_rule(
+        claims["claimant_id"].isin(shared_claimants),
+        20,
+        "Shared phone number - requires verification"
+    )
 
-    claims.loc[
-        claims["claimant_id"].isin(shared_claimants), "risk_reasons"
-    ] += "Shared phone number; "
-
-    
     # Rule 5: Providers handling many claims
     provider_counts = claims["provider_id"].value_counts()
 
     claims["provider_claim_count"] = (
-    claims["provider_id"].map(provider_counts)
-)
+        claims["provider_id"].map(provider_counts)
+    )
 
-    claims.loc[
-    claims["provider_claim_count"] >= 12, "risk_score"
-] += 20
+    apply_rule(
+        claims["provider_claim_count"] >= 12,
+        20,
+        "Provider handles unusually many claims"
+    )
 
-    claims.loc[
-    claims["provider_claim_count"] >= 12, "risk_reasons"
-] += "Provider handles unusually many claims; "
-
-
-    
-    # Rule 6: Highly concentrated provider network
+    # Rule 6: Providers connected to many distinct claimants
     provider_claimant_counts = (
         claims.groupby("provider_id")["claimant_id"].nunique()
     )
@@ -103,19 +149,17 @@ def detect_fraud():
         claims["provider_id"].map(provider_claimant_counts)
     )
 
-    # Flag providers connected to at least 8 distinct claimants
-    claims.loc[
-        claims["provider_claimant_count"] >= 8, "risk_score"
-    ] += 40
+    apply_rule(
+        claims["provider_claimant_count"] >= 8,
+        40,
+        "Provider connected to many claimants"
+    )
 
-    claims.loc[
-        claims["provider_claimant_count"] >= 8, "risk_reasons"
-    ] += "Provider connected to many claimants; "
-
-
-    
-    # Cap risk score at 100
-    claims["risk_score"] = claims["risk_score"].clip(upper=100)
+    # Cap risk scores at 100
+    claims["risk_score"] = claims["risk_score"].clip(
+        lower=0,
+        upper=100
+    )
 
     # Assign risk categories
     claims["risk_level"] = pd.cut(
@@ -126,14 +170,22 @@ def detect_fraud():
 
     # Save results
     output_file = OUTPUT_DIR / "fraud_results.csv"
+
     claims.to_csv(output_file, index=False)
 
     print("Fraud detection completed!")
-    print("\nRisk level summary:")
-    print(claims["risk_level"].value_counts())
 
-    print("\nTotal suspicious claims:",
-          (claims["risk_score"] >= 30).sum())
+    print("\nRisk level summary:")
+    print(
+        claims["risk_level"]
+        .value_counts()
+        .reindex(["Low", "Medium", "High"], fill_value=0)
+    )
+
+    print(
+        "\nTotal suspicious claims:",
+        (claims["risk_score"] >= 30).sum()
+    )
 
     print("\nResults saved to:", output_file)
 
