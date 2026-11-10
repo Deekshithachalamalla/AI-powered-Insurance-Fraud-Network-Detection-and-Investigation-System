@@ -391,3 +391,26 @@ data/insurance_fraud.db
 - Detection results require validation on larger real-world datasets.
 - Risk flags indicate suspicious activity and do not establish confirmed fraud.
 
+
+## Project Screenshots
+
+### 1. Dashboard Overview
+![Dashboard Overview](screenshots/dashboard_overview.png)
+
+### 2. Claim Risk Distribution
+![Risk Distribution](screenshots/risk_distribution.png)
+
+### 3. Risk Score Analysis
+![Risk Score Analysis](screenshots/risk_score_analysis.png)
+
+### 4. Suspicious Claims and Investigations
+![Suspicious Claims and Investigations](screenshots/suspicious_claims_investigations.png)
+
+### 5. Financial Anomaly Detection
+![Financial Anomaly Detection](screenshots/financial_anomaly_detection.png)
+
+### 6. Fraud Network Visualization
+![Fraud Network Graph](screenshots/fraud_network_graph.png)
+
+### 7. Network Statistics
+![Network Statistics](screenshots/network_statistics.png)
