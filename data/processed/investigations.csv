@@ -1,0 +1,144 @@
+investigation_id,claim_id,risk_score,risk_level,evidence,investigation_status,assigned_to,created_date
+INVG-2026-000001,CLM-2026-000001,40,Medium,Provider connected to many claimants; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000002,CLM-2026-000002,60,High,Shared phone number; Provider connected to many claimants; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000003,CLM-2026-000003,40,Medium,Provider connected to many claimants; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000004,CLM-2026-000004,40,Medium,Provider connected to many claimants; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000005,CLM-2026-000005,30,Medium,Multiple claims by claimant; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000006,CLM-2026-000006,70,High,Multiple claims by claimant; Provider connected to many claimants; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000007,CLM-2026-000007,60,High,Multiple claims by claimant; Unusually high claim amount; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000008,CLM-2026-000009,40,Medium,Provider connected to many claimants; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000009,CLM-2026-000014,70,High,Unusually high claim amount; Provider connected to many claimants; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000010,CLM-2026-000015,40,Medium,Provider connected to many claimants; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000011,CLM-2026-000016,70,High,Multiple claims by claimant; Provider connected to many claimants; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000012,CLM-2026-000017,70,High,Unusually high claim amount; Provider connected to many claimants; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000013,CLM-2026-000018,40,Medium,Provider connected to many claimants; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000014,CLM-2026-000019,70,High,Unusually high claim amount; Provider connected to many claimants; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000015,CLM-2026-000020,90,High,Unusually high claim amount; Large difference between requested and approved amount; Provider connected to many claimants; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000016,CLM-2026-000021,90,High,Unusually high claim amount; Large difference between requested and approved amount; Provider connected to many claimants; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000017,CLM-2026-000022,90,High,Unusually high claim amount; Large difference between requested and approved amount; Provider connected to many claimants; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000018,CLM-2026-000023,50,Medium,Unusually high claim amount; Large difference between requested and approved amount; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000019,CLM-2026-000024,50,Medium,Unusually high claim amount; Large difference between requested and approved amount; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000020,CLM-2026-000025,50,Medium,Unusually high claim amount; Large difference between requested and approved amount; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000021,CLM-2026-000026,40,Medium,Provider connected to many claimants; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000022,CLM-2026-000027,70,High,Multiple claims by claimant; Provider connected to many claimants; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000023,CLM-2026-000028,70,High,Multiple claims by claimant; Provider connected to many claimants; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000024,CLM-2026-000029,40,Medium,Provider connected to many claimants; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000025,CLM-2026-000031,100,High,Multiple claims by claimant; Unusually high claim amount; Large difference between requested and approved amount; Provider connected to many claimants; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000026,CLM-2026-000032,80,High,Multiple claims by claimant; Unusually high claim amount; Large difference between requested and approved amount; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000027,CLM-2026-000034,40,Medium,Provider connected to many claimants; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000028,CLM-2026-000035,80,High,Multiple claims by claimant; Unusually high claim amount; Large difference between requested and approved amount; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000029,CLM-2026-000037,50,Medium,Unusually high claim amount; Large difference between requested and approved amount; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000030,CLM-2026-000040,40,Medium,Provider connected to many claimants; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000031,CLM-2026-000042,40,Medium,Provider connected to many claimants; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000032,CLM-2026-000043,70,High,Multiple claims by claimant; Provider connected to many claimants; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000033,CLM-2026-000044,40,Medium,Provider connected to many claimants; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000034,CLM-2026-000045,30,Medium,Multiple claims by claimant; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000035,CLM-2026-000046,90,High,Multiple claims by claimant; Large difference between requested and approved amount; Provider connected to many claimants; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000036,CLM-2026-000047,40,Medium,Provider connected to many claimants; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000037,CLM-2026-000049,50,Medium,Unusually high claim amount; Large difference between requested and approved amount; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000038,CLM-2026-000050,30,Medium,Multiple claims by claimant; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000039,CLM-2026-000052,70,High,Multiple claims by claimant; Provider connected to many claimants; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000040,CLM-2026-000053,60,High,Large difference between requested and approved amount; Provider connected to many claimants; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000041,CLM-2026-000054,40,Medium,Provider connected to many claimants; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000042,CLM-2026-000055,30,Medium,Multiple claims by claimant; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000043,CLM-2026-000056,50,Medium,Unusually high claim amount; Large difference between requested and approved amount; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000044,CLM-2026-000058,70,High,Multiple claims by claimant; Provider connected to many claimants; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000045,CLM-2026-000060,40,Medium,Provider connected to many claimants; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000046,CLM-2026-000061,90,High,Unusually high claim amount; Large difference between requested and approved amount; Provider connected to many claimants; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000047,CLM-2026-000065,40,Medium,Provider connected to many claimants; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000048,CLM-2026-000066,40,Medium,Provider connected to many claimants; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000049,CLM-2026-000069,30,Medium,Multiple claims by claimant; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000050,CLM-2026-000071,50,Medium,Unusually high claim amount; Large difference between requested and approved amount; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000051,CLM-2026-000072,80,High,Multiple claims by claimant; Unusually high claim amount; Large difference between requested and approved amount; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000052,CLM-2026-000073,80,High,Multiple claims by claimant; Unusually high claim amount; Large difference between requested and approved amount; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000053,CLM-2026-000075,90,High,Unusually high claim amount; Large difference between requested and approved amount; Provider connected to many claimants; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000054,CLM-2026-000076,40,Medium,Provider connected to many claimants; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000055,CLM-2026-000077,40,Medium,Provider connected to many claimants; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000056,CLM-2026-000078,40,Medium,Provider connected to many claimants; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000057,CLM-2026-000079,40,Medium,Provider connected to many claimants; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000058,CLM-2026-000080,90,High,Unusually high claim amount; Large difference between requested and approved amount; Provider connected to many claimants; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000059,CLM-2026-000081,30,Medium,Multiple claims by claimant; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000060,CLM-2026-000082,70,High,Multiple claims by claimant; Provider connected to many claimants; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000061,CLM-2026-000084,70,High,Unusually high claim amount; Provider connected to many claimants; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000062,CLM-2026-000085,50,Medium,Unusually high claim amount; Large difference between requested and approved amount; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000063,CLM-2026-000086,40,Medium,Provider connected to many claimants; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000064,CLM-2026-000087,50,Medium,Unusually high claim amount; Large difference between requested and approved amount; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000065,CLM-2026-000088,30,Medium,Multiple claims by claimant; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000066,CLM-2026-000089,80,High,Multiple claims by claimant; Unusually high claim amount; Large difference between requested and approved amount; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000067,CLM-2026-000090,90,High,Unusually high claim amount; Large difference between requested and approved amount; Provider connected to many claimants; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000068,CLM-2026-000091,50,Medium,Unusually high claim amount; Large difference between requested and approved amount; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000069,CLM-2026-000092,90,High,Multiple claims by claimant; Large difference between requested and approved amount; Provider connected to many claimants; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000070,CLM-2026-000094,100,High,Multiple claims by claimant; Unusually high claim amount; Provider connected to many claimants; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000071,CLM-2026-000096,70,High,Multiple claims by claimant; Provider connected to many claimants; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000072,CLM-2026-000097,30,Medium,Multiple claims by claimant; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000073,CLM-2026-000098,50,Medium,Unusually high claim amount; Large difference between requested and approved amount; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000074,CLM-2026-000099,30,Medium,Multiple claims by claimant; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000075,CLM-2026-000100,40,Medium,Provider connected to many claimants; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000076,CLM-2026-000101,50,Medium,Unusually high claim amount; Large difference between requested and approved amount; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000077,CLM-2026-000102,70,High,Multiple claims by claimant; Provider connected to many claimants; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000078,CLM-2026-000104,30,Medium,Multiple claims by claimant; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000079,CLM-2026-000106,40,Medium,Provider connected to many claimants; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000080,CLM-2026-000108,80,High,Multiple claims by claimant; Unusually high claim amount; Large difference between requested and approved amount; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000081,CLM-2026-000109,90,High,Unusually high claim amount; Large difference between requested and approved amount; Provider connected to many claimants; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000082,CLM-2026-000110,90,High,Unusually high claim amount; Large difference between requested and approved amount; Provider connected to many claimants; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000083,CLM-2026-000113,40,Medium,Provider connected to many claimants; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000084,CLM-2026-000114,70,High,Unusually high claim amount; Provider connected to many claimants; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000085,CLM-2026-000115,40,Medium,Provider connected to many claimants; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000086,CLM-2026-000118,90,High,Unusually high claim amount; Large difference between requested and approved amount; Provider connected to many claimants; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000087,CLM-2026-000119,90,High,Unusually high claim amount; Large difference between requested and approved amount; Provider connected to many claimants; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000088,CLM-2026-000123,30,Medium,Multiple claims by claimant; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000089,CLM-2026-000125,40,Medium,Provider connected to many claimants; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000090,CLM-2026-000127,50,Medium,Unusually high claim amount; Large difference between requested and approved amount; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000091,CLM-2026-000128,70,High,Multiple claims by claimant; Provider connected to many claimants; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000092,CLM-2026-000129,40,Medium,Provider connected to many claimants; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000093,CLM-2026-000131,70,High,Multiple claims by claimant; Provider connected to many claimants; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000094,CLM-2026-000132,40,Medium,Provider connected to many claimants; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000095,CLM-2026-000133,70,High,Multiple claims by claimant; Provider connected to many claimants; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000096,CLM-2026-000135,70,High,Multiple claims by claimant; Provider connected to many claimants; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000097,CLM-2026-000136,40,Medium,Provider connected to many claimants; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000098,CLM-2026-000139,80,High,Multiple claims by claimant; Unusually high claim amount; Large difference between requested and approved amount; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000099,CLM-2026-000141,40,Medium,Provider connected to many claimants; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000100,CLM-2026-000142,70,High,Multiple claims by claimant; Provider connected to many claimants; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000101,CLM-2026-000143,90,High,Unusually high claim amount; Large difference between requested and approved amount; Provider connected to many claimants; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000102,CLM-2026-000144,60,High,Large difference between requested and approved amount; Provider connected to many claimants; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000103,CLM-2026-000148,70,High,Multiple claims by claimant; Provider connected to many claimants; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000104,CLM-2026-000150,70,High,Unusually high claim amount; Large difference between requested and approved amount; Shared phone number; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000105,CLM-2026-000151,90,High,Unusually high claim amount; Large difference between requested and approved amount; Provider connected to many claimants; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000106,CLM-2026-000153,100,High,Multiple claims by claimant; Unusually high claim amount; Large difference between requested and approved amount; Provider connected to many claimants; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000107,CLM-2026-000154,40,Medium,Provider connected to many claimants; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000108,CLM-2026-000156,40,Medium,Provider connected to many claimants; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000109,CLM-2026-000157,80,High,Multiple claims by claimant; Unusually high claim amount; Large difference between requested and approved amount; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000110,CLM-2026-000158,60,High,Large difference between requested and approved amount; Provider connected to many claimants; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000111,CLM-2026-000161,40,Medium,Provider connected to many claimants; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000112,CLM-2026-000162,40,Medium,Provider connected to many claimants; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000113,CLM-2026-000163,90,High,Unusually high claim amount; Large difference between requested and approved amount; Provider connected to many claimants; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000114,CLM-2026-000164,70,High,Multiple claims by claimant; Provider connected to many claimants; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000115,CLM-2026-000165,40,Medium,Provider connected to many claimants; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000116,CLM-2026-000166,90,High,Unusually high claim amount; Large difference between requested and approved amount; Provider connected to many claimants; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000117,CLM-2026-000167,30,Medium,Unusually high claim amount; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000118,CLM-2026-000168,40,Medium,Provider connected to many claimants; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000119,CLM-2026-000170,100,High,Multiple claims by claimant; Unusually high claim amount; Large difference between requested and approved amount; Provider connected to many claimants; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000120,CLM-2026-000171,30,Medium,Multiple claims by claimant; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000121,CLM-2026-000172,40,Medium,Provider connected to many claimants; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000122,CLM-2026-000174,30,Medium,Multiple claims by claimant; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000123,CLM-2026-000175,50,Medium,Unusually high claim amount; Large difference between requested and approved amount; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000124,CLM-2026-000176,30,Medium,Multiple claims by claimant; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000125,CLM-2026-000177,40,Medium,Provider connected to many claimants; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000126,CLM-2026-000178,100,High,Multiple claims by claimant; Unusually high claim amount; Large difference between requested and approved amount; Provider connected to many claimants; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000127,CLM-2026-000179,90,High,Multiple claims by claimant; Large difference between requested and approved amount; Provider connected to many claimants; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000128,CLM-2026-000181,40,Medium,Provider connected to many claimants; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000129,CLM-2026-000182,50,Medium,Multiple claims by claimant; Large difference between requested and approved amount; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000130,CLM-2026-000183,60,High,Multiple claims by claimant; Unusually high claim amount; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000131,CLM-2026-000184,50,Medium,Unusually high claim amount; Large difference between requested and approved amount; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000132,CLM-2026-000185,40,Medium,Provider connected to many claimants; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000133,CLM-2026-000187,50,Medium,Unusually high claim amount; Large difference between requested and approved amount; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000134,CLM-2026-000188,40,Medium,Provider connected to many claimants; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000135,CLM-2026-000189,70,High,Multiple claims by claimant; Provider connected to many claimants; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000136,CLM-2026-000190,30,Medium,Multiple claims by claimant; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000137,CLM-2026-000191,30,Medium,Multiple claims by claimant; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000138,CLM-2026-000192,90,High,Unusually high claim amount; Large difference between requested and approved amount; Provider connected to many claimants; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000139,CLM-2026-000193,70,High,Unusually high claim amount; Provider connected to many claimants; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000140,CLM-2026-000194,70,High,Multiple claims by claimant; Provider connected to many claimants; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000141,CLM-2026-000197,50,Medium,Multiple claims by claimant; Large difference between requested and approved amount; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000142,CLM-2026-000198,80,High,Multiple claims by claimant; Unusually high claim amount; Large difference between requested and approved amount; ,Open,Risk Analyst,2026-11-10
+INVG-2026-000143,CLM-2026-000200,40,Medium,Provider connected to many claimants; ,Open,Risk Analyst,2026-11-10

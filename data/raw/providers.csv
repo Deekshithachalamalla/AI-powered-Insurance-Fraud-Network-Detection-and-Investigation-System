@@ -1,0 +1,31 @@
+provider_id,provider_name,provider_type,city
+PRV-000001,Provider_1,Clinic,Mumbai
+PRV-000002,Provider_2,Hospital,Hyderabad
+PRV-000003,Provider_3,Repair Shop,Bengaluru
+PRV-000004,Provider_4,Repair Shop,Bengaluru
+PRV-000005,Provider_5,Repair Shop,Mumbai
+PRV-000006,Provider_6,Repair Shop,Mumbai
+PRV-000007,Provider_7,Repair Shop,Hyderabad
+PRV-000008,Provider_8,Clinic,Chennai
+PRV-000009,Provider_9,Repair Shop,Bengaluru
+PRV-000010,Provider_10,Hospital,Bengaluru
+PRV-000011,Provider_11,Clinic,Chennai
+PRV-000012,Provider_12,Clinic,Mumbai
+PRV-000013,Provider_13,Hospital,Mumbai
+PRV-000014,Provider_14,Hospital,Hyderabad
+PRV-000015,Provider_15,Clinic,Bengaluru
+PRV-000016,Provider_16,Hospital,Bengaluru
+PRV-000017,Provider_17,Hospital,Bengaluru
+PRV-000018,Provider_18,Repair Shop,Bengaluru
+PRV-000019,Provider_19,Clinic,Chennai
+PRV-000020,Provider_20,Repair Shop,Hyderabad
+PRV-000021,Provider_21,Clinic,Hyderabad
+PRV-000022,Provider_22,Clinic,Chennai
+PRV-000023,Provider_23,Repair Shop,Chennai
+PRV-000024,Provider_24,Hospital,Bengaluru
+PRV-000025,Provider_25,Repair Shop,Bengaluru
+PRV-000026,Provider_26,Repair Shop,Mumbai
+PRV-000027,Provider_27,Clinic,Hyderabad
+PRV-000028,Provider_28,Hospital,Hyderabad
+PRV-000029,Provider_29,Clinic,Chennai
+PRV-000030,Provider_30,Hospital,Chennai

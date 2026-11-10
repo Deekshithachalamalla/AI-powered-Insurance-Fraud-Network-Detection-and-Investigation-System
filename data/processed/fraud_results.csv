@@ -1,0 +1,201 @@
+claim_id,claimant_id,policy_id,incident_id,provider_id,claim_amount,approved_amount,claim_status,risk_score,risk_reasons,claimant_claim_count,amount_difference,provider_claim_count,provider_claimant_count,risk_level
+CLM-2026-000001,CLT-000081,POL-000134,INC-000001,PRV-000001,223406,39837,Submitted,40,Provider connected to many claimants; ,2,183569,11,11,Medium
+CLM-2026-000002,CLT-000001,POL-000111,INC-000002,PRV-000001,107298,136970,Submitted,60,Shared phone number; Provider connected to many claimants; ,2,-29672,11,11,High
+CLM-2026-000003,CLT-000027,POL-000070,INC-000003,PRV-000001,91222,47282,Submitted,40,Provider connected to many claimants; ,2,43940,11,11,Medium
+CLM-2026-000004,CLT-000084,POL-000064,INC-000004,PRV-000023,76032,197745,Rejected,40,Provider connected to many claimants; ,2,-121713,11,10,Medium
+CLM-2026-000005,CLT-000024,POL-000032,INC-000005,PRV-000025,267452,189002,Submitted,30,Multiple claims by claimant; ,5,78450,7,7,Medium
+CLM-2026-000006,CLT-000018,POL-000002,INC-000006,PRV-000030,311697,156321,Submitted,70,Multiple claims by claimant; Provider connected to many claimants; ,4,155376,10,8,High
+CLM-2026-000007,CLT-000024,POL-000100,INC-000007,PRV-000020,363950,179955,Submitted,60,Multiple claims by claimant; Unusually high claim amount; ,5,183995,5,5,High
+CLM-2026-000008,CLT-000010,POL-000025,INC-000008,PRV-000012,226188,284076,Approved,0,,2,-57888,4,3,Low
+CLM-2026-000009,CLT-000080,POL-000136,INC-000009,PRV-000022,104147,49952,Under Review,40,Provider connected to many claimants; ,3,54195,9,9,Medium
+CLM-2026-000010,CLT-000090,POL-000082,INC-000010,PRV-000007,126514,63978,Submitted,0,,2,62536,6,5,Low
+CLM-2026-000011,CLT-000100,POL-000094,INC-000011,PRV-000015,310917,153085,Approved,0,,2,157832,7,7,Low
+CLM-2026-000012,CLT-000043,POL-000025,INC-000012,PRV-000011,22764,262427,Approved,0,,1,-239663,4,4,Low
+CLM-2026-000013,CLT-000015,POL-000090,INC-000013,PRV-000011,71670,20893,Approved,0,,2,50777,4,4,Low
+CLM-2026-000014,CLT-000037,POL-000131,INC-000014,PRV-000017,425589,265623,Rejected,70,Unusually high claim amount; Provider connected to many claimants; ,2,159966,9,9,High
+CLM-2026-000015,CLT-000075,POL-000057,INC-000015,PRV-000017,272056,284655,Under Review,40,Provider connected to many claimants; ,3,-12599,9,9,Medium
+CLM-2026-000016,CLT-000024,POL-000015,INC-000016,PRV-000014,53833,291620,Submitted,70,Multiple claims by claimant; Provider connected to many claimants; ,5,-237787,9,9,High
+CLM-2026-000017,CLT-000037,POL-000098,INC-000017,PRV-000018,375143,273875,Under Review,70,Unusually high claim amount; Provider connected to many claimants; ,2,101268,9,8,High
+CLM-2026-000018,CLT-000030,POL-000043,INC-000018,PRV-000017,144101,29602,Approved,40,Provider connected to many claimants; ,3,114499,9,9,Medium
+CLM-2026-000019,CLT-000070,POL-000079,INC-000019,PRV-000018,448686,282825,Submitted,70,Unusually high claim amount; Provider connected to many claimants; ,2,165861,9,8,High
+CLM-2026-000020,CLT-000086,POL-000103,INC-000020,PRV-000030,458750,233571,Rejected,90,Unusually high claim amount; Large difference between requested and approved amount; Provider connected to many claimants; ,3,225179,10,8,High
+CLM-2026-000021,CLT-000019,POL-000003,INC-000021,PRV-000018,468733,228805,Rejected,90,Unusually high claim amount; Large difference between requested and approved amount; Provider connected to many claimants; ,3,239928,9,8,High
+CLM-2026-000022,CLT-000041,POL-000136,INC-000022,PRV-000014,415383,114422,Rejected,90,Unusually high claim amount; Large difference between requested and approved amount; Provider connected to many claimants; ,1,300961,9,9,High
+CLM-2026-000023,CLT-000086,POL-000132,INC-000023,PRV-000025,499240,31310,Rejected,50,Unusually high claim amount; Large difference between requested and approved amount; ,3,467930,7,7,Medium
+CLM-2026-000024,CLT-000031,POL-000062,INC-000024,PRV-000025,455349,112825,Rejected,50,Unusually high claim amount; Large difference between requested and approved amount; ,2,342524,7,7,Medium
+CLM-2026-000025,CLT-000056,POL-000069,INC-000025,PRV-000021,400916,172814,Submitted,50,Unusually high claim amount; Large difference between requested and approved amount; ,2,228102,5,4,Medium
+CLM-2026-000026,CLT-000100,POL-000145,INC-000026,PRV-000018,112708,155243,Submitted,40,Provider connected to many claimants; ,2,-42535,9,8,Medium
+CLM-2026-000027,CLT-000024,POL-000053,INC-000027,PRV-000004,69774,179290,Submitted,70,Multiple claims by claimant; Provider connected to many claimants; ,5,-109516,10,10,High
+CLM-2026-000028,CLT-000082,POL-000064,INC-000028,PRV-000001,290320,121601,Submitted,70,Multiple claims by claimant; Provider connected to many claimants; ,4,168719,11,11,High
+CLM-2026-000029,CLT-000081,POL-000063,INC-000029,PRV-000004,42163,293157,Approved,40,Provider connected to many claimants; ,2,-250994,10,10,Medium
+CLM-2026-000030,CLT-000093,POL-000137,INC-000030,PRV-000016,66920,161306,Under Review,0,,2,-94386,6,6,Low
+CLM-2026-000031,CLT-000098,POL-000124,INC-000031,PRV-000017,390888,32877,Approved,100,Multiple claims by claimant; Unusually high claim amount; Large difference between requested and approved amount; Provider connected to many claimants; ,6,358011,9,9,High
+CLM-2026-000032,CLT-000023,POL-000112,INC-000032,PRV-000025,477692,59221,Submitted,80,Multiple claims by claimant; Unusually high claim amount; Large difference between requested and approved amount; ,4,418471,7,7,High
+CLM-2026-000033,CLT-000047,POL-000007,INC-000033,PRV-000012,164612,18100,Submitted,0,,3,146512,4,3,Low
+CLM-2026-000034,CLT-000059,POL-000044,INC-000034,PRV-000027,163126,176912,Submitted,40,Provider connected to many claimants; ,3,-13786,9,9,Medium
+CLM-2026-000035,CLT-000098,POL-000110,INC-000035,PRV-000013,470768,90670,Submitted,80,Multiple claims by claimant; Unusually high claim amount; Large difference between requested and approved amount; ,6,380098,6,6,High
+CLM-2026-000036,CLT-000030,POL-000031,INC-000036,PRV-000013,256293,245957,Approved,0,,3,10336,6,6,Low
+CLM-2026-000037,CLT-000071,POL-000116,INC-000037,PRV-000008,422139,125907,Submitted,50,Unusually high claim amount; Large difference between requested and approved amount; ,3,296232,6,5,Medium
+CLM-2026-000038,CLT-000068,POL-000132,INC-000038,PRV-000015,158359,201468,Under Review,0,,2,-43109,7,7,Low
+CLM-2026-000039,CLT-000047,POL-000109,INC-000039,PRV-000013,146722,27123,Approved,0,,3,119599,6,6,Low
+CLM-2026-000040,CLT-000089,POL-000053,INC-000040,PRV-000014,128207,47056,Submitted,40,Provider connected to many claimants; ,1,81151,9,9,Medium
+CLM-2026-000041,CLT-000004,POL-000137,INC-000041,PRV-000019,69336,152116,Approved,0,,2,-82780,4,4,Low
+CLM-2026-000042,CLT-000062,POL-000139,INC-000042,PRV-000022,321995,270855,Under Review,40,Provider connected to many claimants; ,1,51140,9,9,Medium
+CLM-2026-000043,CLT-000085,POL-000108,INC-000043,PRV-000030,336411,138695,Approved,70,Multiple claims by claimant; Provider connected to many claimants; ,5,197716,10,8,High
+CLM-2026-000044,CLT-000066,POL-000101,INC-000044,PRV-000022,200412,129875,Submitted,40,Provider connected to many claimants; ,3,70537,9,9,Medium
+CLM-2026-000045,CLT-000044,POL-000066,INC-000045,PRV-000024,58640,86467,Under Review,30,Multiple claims by claimant; ,4,-27827,4,4,Medium
+CLM-2026-000046,CLT-000077,POL-000011,INC-000046,PRV-000027,243052,7261,Approved,90,Multiple claims by claimant; Large difference between requested and approved amount; Provider connected to many claimants; ,4,235791,9,9,High
+CLM-2026-000047,CLT-000005,POL-000014,INC-000047,PRV-000014,314200,230645,Submitted,40,Provider connected to many claimants; ,3,83555,9,9,Medium
+CLM-2026-000048,CLT-000026,POL-000090,INC-000048,PRV-000015,320944,115081,Approved,20,Large difference between requested and approved amount; ,3,205863,7,7,Low
+CLM-2026-000049,CLT-000080,POL-000006,INC-000049,PRV-000010,432038,172133,Rejected,50,Unusually high claim amount; Large difference between requested and approved amount; ,3,259905,7,7,Medium
+CLM-2026-000050,CLT-000095,POL-000053,INC-000050,PRV-000009,136057,207591,Approved,30,Multiple claims by claimant; ,6,-71534,4,4,Medium
+CLM-2026-000051,CLT-000003,POL-000091,INC-000051,PRV-000002,145008,192747,Submitted,0,,3,-47739,4,4,Low
+CLM-2026-000052,CLT-000085,POL-000094,INC-000052,PRV-000023,175302,217511,Submitted,70,Multiple claims by claimant; Provider connected to many claimants; ,5,-42209,11,10,High
+CLM-2026-000053,CLT-000038,POL-000092,INC-000053,PRV-000004,315119,10439,Submitted,60,Large difference between requested and approved amount; Provider connected to many claimants; ,2,304680,10,10,High
+CLM-2026-000054,CLT-000093,POL-000024,INC-000054,PRV-000027,152639,295338,Approved,40,Provider connected to many claimants; ,2,-142699,9,9,Medium
+CLM-2026-000055,CLT-000018,POL-000010,INC-000055,PRV-000013,143076,292708,Rejected,30,Multiple claims by claimant; ,4,-149632,6,6,Medium
+CLM-2026-000056,CLT-000026,POL-000118,INC-000056,PRV-000007,423562,66117,Rejected,50,Unusually high claim amount; Large difference between requested and approved amount; ,3,357445,6,5,Medium
+CLM-2026-000057,CLT-000032,POL-000126,INC-000057,PRV-000002,100807,138087,Approved,0,,3,-37280,4,4,Low
+CLM-2026-000058,CLT-000058,POL-000131,INC-000058,PRV-000014,222893,96310,Rejected,70,Multiple claims by claimant; Provider connected to many claimants; ,5,126583,9,9,High
+CLM-2026-000059,CLT-000053,POL-000014,INC-000059,PRV-000026,35474,34059,Rejected,0,,3,1415,7,7,Low
+CLM-2026-000060,CLT-000054,POL-000143,INC-000060,PRV-000004,120109,157929,Rejected,40,Provider connected to many claimants; ,2,-37820,10,10,Medium
+CLM-2026-000061,CLT-000086,POL-000099,INC-000061,PRV-000022,487817,231262,Submitted,90,Unusually high claim amount; Large difference between requested and approved amount; Provider connected to many claimants; ,3,256555,9,9,High
+CLM-2026-000062,CLT-000032,POL-000063,INC-000062,PRV-000015,183882,83388,Approved,0,,3,100494,7,7,Low
+CLM-2026-000063,CLT-000005,POL-000017,INC-000063,PRV-000010,193780,247460,Approved,0,,3,-53680,7,7,Low
+CLM-2026-000064,CLT-000066,POL-000019,INC-000064,PRV-000002,49689,13444,Under Review,0,,3,36245,4,4,Low
+CLM-2026-000065,CLT-000091,POL-000068,INC-000065,PRV-000004,90423,139704,Approved,40,Provider connected to many claimants; ,2,-49281,10,10,Medium
+CLM-2026-000066,CLT-000092,POL-000057,INC-000066,PRV-000001,23977,36280,Under Review,40,Provider connected to many claimants; ,2,-12303,11,11,Medium
+CLM-2026-000067,CLT-000009,POL-000075,INC-000067,PRV-000007,133955,49756,Submitted,0,,1,84199,6,5,Low
+CLM-2026-000068,CLT-000019,POL-000032,INC-000068,PRV-000024,15654,12866,Submitted,0,,3,2788,4,4,Low
+CLM-2026-000069,CLT-000095,POL-000029,INC-000069,PRV-000019,239221,221818,Submitted,30,Multiple claims by claimant; ,6,17403,4,4,Medium
+CLM-2026-000070,CLT-000092,POL-000128,INC-000070,PRV-000013,129729,57512,Rejected,0,,2,72217,6,6,Low
+CLM-2026-000071,CLT-000066,POL-000128,INC-000071,PRV-000006,486643,107881,Submitted,50,Unusually high claim amount; Large difference between requested and approved amount; ,3,378762,6,6,Medium
+CLM-2026-000072,CLT-000095,POL-000120,INC-000072,PRV-000012,452329,160224,Rejected,80,Multiple claims by claimant; Unusually high claim amount; Large difference between requested and approved amount; ,6,292105,4,3,High
+CLM-2026-000073,CLT-000020,POL-000005,INC-000073,PRV-000010,410651,139327,Approved,80,Multiple claims by claimant; Unusually high claim amount; Large difference between requested and approved amount; ,4,271324,7,7,High
+CLM-2026-000074,CLT-000097,POL-000058,INC-000074,PRV-000020,119428,288533,Submitted,0,,2,-169105,5,5,Low
+CLM-2026-000075,CLT-000069,POL-000023,INC-000075,PRV-000028,436296,111887,Approved,90,Unusually high claim amount; Large difference between requested and approved amount; Provider connected to many claimants; ,3,324409,9,9,High
+CLM-2026-000076,CLT-000029,POL-000117,INC-000076,PRV-000001,82204,262702,Approved,40,Provider connected to many claimants; ,3,-180498,11,11,Medium
+CLM-2026-000077,CLT-000042,POL-000049,INC-000077,PRV-000030,96254,137146,Approved,40,Provider connected to many claimants; ,3,-40892,10,8,Medium
+CLM-2026-000078,CLT-000014,POL-000142,INC-000078,PRV-000004,13987,162967,Submitted,40,Provider connected to many claimants; ,2,-148980,10,10,Medium
+CLM-2026-000079,CLT-000042,POL-000044,INC-000079,PRV-000030,183356,172950,Under Review,40,Provider connected to many claimants; ,3,10406,10,8,Medium
+CLM-2026-000080,CLT-000072,POL-000001,INC-000080,PRV-000030,454948,249525,Under Review,90,Unusually high claim amount; Large difference between requested and approved amount; Provider connected to many claimants; ,1,205423,10,8,High
+CLM-2026-000081,CLT-000085,POL-000136,INC-000081,PRV-000020,234461,36446,Rejected,30,Multiple claims by claimant; ,5,198015,5,5,Medium
+CLM-2026-000082,CLT-000044,POL-000026,INC-000082,PRV-000028,99941,79342,Under Review,70,Multiple claims by claimant; Provider connected to many claimants; ,4,20599,9,9,High
+CLM-2026-000083,CLT-000094,POL-000059,INC-000083,PRV-000025,272337,218762,Under Review,0,,3,53575,7,7,Low
+CLM-2026-000084,CLT-000074,POL-000124,INC-000084,PRV-000027,479833,287526,Rejected,70,Unusually high claim amount; Provider connected to many claimants; ,1,192307,9,9,High
+CLM-2026-000085,CLT-000097,POL-000117,INC-000085,PRV-000005,439317,84752,Approved,50,Unusually high claim amount; Large difference between requested and approved amount; ,2,354565,8,7,Medium
+CLM-2026-000086,CLT-000080,POL-000120,INC-000086,PRV-000001,209963,15908,Rejected,40,Provider connected to many claimants; ,3,194055,11,11,Medium
+CLM-2026-000087,CLT-000060,POL-000030,INC-000087,PRV-000025,498522,162227,Rejected,50,Unusually high claim amount; Large difference between requested and approved amount; ,2,336295,7,7,Medium
+CLM-2026-000088,CLT-000098,POL-000106,INC-000088,PRV-000021,229336,224047,Under Review,30,Multiple claims by claimant; ,6,5289,5,4,Medium
+CLM-2026-000089,CLT-000040,POL-000103,INC-000089,PRV-000010,435689,188726,Approved,80,Multiple claims by claimant; Unusually high claim amount; Large difference between requested and approved amount; ,5,246963,7,7,High
+CLM-2026-000090,CLT-000042,POL-000121,INC-000090,PRV-000014,404535,59024,Submitted,90,Unusually high claim amount; Large difference between requested and approved amount; Provider connected to many claimants; ,3,345511,9,9,High
+CLM-2026-000091,CLT-000039,POL-000030,INC-000091,PRV-000025,435473,145741,Approved,50,Unusually high claim amount; Large difference between requested and approved amount; ,2,289732,7,7,Medium
+CLM-2026-000092,CLT-000077,POL-000143,INC-000092,PRV-000023,328177,40668,Submitted,90,Multiple claims by claimant; Large difference between requested and approved amount; Provider connected to many claimants; ,4,287509,11,10,High
+CLM-2026-000093,CLT-000094,POL-000044,INC-000093,PRV-000013,74028,297323,Rejected,0,,3,-223295,6,6,Low
+CLM-2026-000094,CLT-000085,POL-000015,INC-000094,PRV-000023,355561,284875,Under Review,100,Multiple claims by claimant; Unusually high claim amount; Provider connected to many claimants; ,5,70686,11,10,High
+CLM-2026-000095,CLT-000010,POL-000061,INC-000095,PRV-000006,264632,124238,Submitted,0,,2,140394,6,6,Low
+CLM-2026-000096,CLT-000058,POL-000098,INC-000096,PRV-000023,33128,269218,Approved,70,Multiple claims by claimant; Provider connected to many claimants; ,5,-236090,11,10,High
+CLM-2026-000097,CLT-000023,POL-000139,INC-000097,PRV-000005,349025,268833,Under Review,30,Multiple claims by claimant; ,4,80192,8,7,Medium
+CLM-2026-000098,CLT-000055,POL-000109,INC-000098,PRV-000005,406455,39152,Submitted,50,Unusually high claim amount; Large difference between requested and approved amount; ,2,367303,8,7,Medium
+CLM-2026-000099,CLT-000095,POL-000056,INC-000099,PRV-000021,99822,153997,Approved,30,Multiple claims by claimant; ,6,-54175,5,4,Medium
+CLM-2026-000100,CLT-000091,POL-000052,INC-000100,PRV-000001,229118,151151,Under Review,40,Provider connected to many claimants; ,2,77967,11,11,Medium
+CLM-2026-000101,CLT-000029,POL-000118,INC-000101,PRV-000007,365876,65870,Approved,50,Unusually high claim amount; Large difference between requested and approved amount; ,3,300006,6,5,Medium
+CLM-2026-000102,CLT-000058,POL-000097,INC-000102,PRV-000028,235355,45295,Submitted,70,Multiple claims by claimant; Provider connected to many claimants; ,5,190060,9,9,High
+CLM-2026-000103,CLT-000076,POL-000052,INC-000103,PRV-000008,247300,258023,Under Review,0,,2,-10723,6,5,Low
+CLM-2026-000104,CLT-000082,POL-000120,INC-000104,PRV-000020,82380,33746,Rejected,30,Multiple claims by claimant; ,4,48634,5,5,Medium
+CLM-2026-000105,CLT-000075,POL-000111,INC-000105,PRV-000009,97967,235144,Submitted,0,,3,-137177,4,4,Low
+CLM-2026-000106,CLT-000032,POL-000015,INC-000106,PRV-000023,149027,70446,Under Review,40,Provider connected to many claimants; ,3,78581,11,10,Medium
+CLM-2026-000107,CLT-000053,POL-000011,INC-000107,PRV-000008,153092,29187,Under Review,0,,3,123905,6,5,Low
+CLM-2026-000108,CLT-000095,POL-000072,INC-000108,PRV-000021,454093,225382,Rejected,80,Multiple claims by claimant; Unusually high claim amount; Large difference between requested and approved amount; ,6,228711,5,4,High
+CLM-2026-000109,CLT-000003,POL-000143,INC-000109,PRV-000030,401588,93434,Submitted,90,Unusually high claim amount; Large difference between requested and approved amount; Provider connected to many claimants; ,3,308154,10,8,High
+CLM-2026-000110,CLT-000063,POL-000044,INC-000110,PRV-000028,428422,76355,Under Review,90,Unusually high claim amount; Large difference between requested and approved amount; Provider connected to many claimants; ,1,352067,9,9,High
+CLM-2026-000111,CLT-000071,POL-000100,INC-000111,PRV-000015,206820,93566,Submitted,0,,3,113254,7,7,Low
+CLM-2026-000112,CLT-000047,POL-000045,INC-000112,PRV-000012,67349,59407,Submitted,0,,3,7942,4,3,Low
+CLM-2026-000113,CLT-000007,POL-000032,INC-000113,PRV-000027,62747,11758,Submitted,40,Provider connected to many claimants; ,3,50989,9,9,Medium
+CLM-2026-000114,CLT-000090,POL-000106,INC-000114,PRV-000022,363279,251156,Under Review,70,Unusually high claim amount; Provider connected to many claimants; ,2,112123,9,9,High
+CLM-2026-000115,CLT-000022,POL-000001,INC-000115,PRV-000027,116787,36504,Submitted,40,Provider connected to many claimants; ,1,80283,9,9,Medium
+CLM-2026-000116,CLT-000055,POL-000083,INC-000116,PRV-000005,186458,242399,Under Review,0,,2,-55941,8,7,Low
+CLM-2026-000117,CLT-000057,POL-000131,INC-000117,PRV-000015,246591,26747,Under Review,20,Large difference between requested and approved amount; ,3,219844,7,7,Low
+CLM-2026-000118,CLT-000025,POL-000123,INC-000118,PRV-000023,414654,135083,Submitted,90,Unusually high claim amount; Large difference between requested and approved amount; Provider connected to many claimants; ,2,279571,11,10,High
+CLM-2026-000119,CLT-000028,POL-000081,INC-000119,PRV-000001,465320,244275,Submitted,90,Unusually high claim amount; Large difference between requested and approved amount; Provider connected to many claimants; ,2,221045,11,11,High
+CLM-2026-000120,CLT-000012,POL-000083,INC-000120,PRV-000029,161759,182172,Rejected,0,,2,-20413,4,4,Low
+CLM-2026-000121,CLT-000007,POL-000086,INC-000121,PRV-000011,146695,34957,Under Review,0,,3,111738,4,4,Low
+CLM-2026-000122,CLT-000075,POL-000026,INC-000122,PRV-000016,164781,39349,Submitted,0,,3,125432,6,6,Low
+CLM-2026-000123,CLT-000018,POL-000148,INC-000123,PRV-000029,199740,44504,Rejected,30,Multiple claims by claimant; ,4,155236,4,4,Medium
+CLM-2026-000124,CLT-000005,POL-000123,INC-000124,PRV-000005,123250,226001,Approved,0,,3,-102751,8,7,Low
+CLM-2026-000125,CLT-000084,POL-000080,INC-000125,PRV-000014,333459,240969,Under Review,40,Provider connected to many claimants; ,2,92490,9,9,Medium
+CLM-2026-000126,CLT-000053,POL-000069,INC-000126,PRV-000007,158187,48684,Submitted,0,,3,109503,6,5,Low
+CLM-2026-000127,CLT-000038,POL-000145,INC-000127,PRV-000016,380119,120373,Submitted,50,Unusually high claim amount; Large difference between requested and approved amount; ,2,259746,6,6,Medium
+CLM-2026-000128,CLT-000095,POL-000095,INC-000128,PRV-000004,137387,208708,Submitted,70,Multiple claims by claimant; Provider connected to many claimants; ,6,-71321,10,10,High
+CLM-2026-000129,CLT-000061,POL-000075,INC-000129,PRV-000018,38720,263472,Approved,40,Provider connected to many claimants; ,1,-224752,9,8,Medium
+CLM-2026-000130,CLT-000004,POL-000130,INC-000130,PRV-000024,73636,56282,Approved,0,,2,17354,4,4,Low
+CLM-2026-000131,CLT-000040,POL-000066,INC-000131,PRV-000027,303261,165640,Under Review,70,Multiple claims by claimant; Provider connected to many claimants; ,5,137621,9,9,High
+CLM-2026-000132,CLT-000065,POL-000048,INC-000132,PRV-000018,71745,16975,Under Review,40,Provider connected to many claimants; ,1,54770,9,8,Medium
+CLM-2026-000133,CLT-000085,POL-000084,INC-000133,PRV-000001,128422,84512,Under Review,70,Multiple claims by claimant; Provider connected to many claimants; ,5,43910,11,11,High
+CLM-2026-000134,CLT-000078,POL-000090,INC-000134,PRV-000024,155132,86824,Rejected,0,,1,68308,4,4,Low
+CLM-2026-000135,CLT-000058,POL-000026,INC-000135,PRV-000018,92646,187341,Approved,70,Multiple claims by claimant; Provider connected to many claimants; ,5,-94695,9,8,High
+CLM-2026-000136,CLT-000019,POL-000012,INC-000136,PRV-000023,32304,265867,Under Review,40,Provider connected to many claimants; ,3,-233563,11,10,Medium
+CLM-2026-000137,CLT-000070,POL-000134,INC-000137,PRV-000026,98677,54128,Submitted,0,,2,44549,7,7,Low
+CLM-2026-000138,CLT-000028,POL-000123,INC-000138,PRV-000021,122614,221669,Submitted,0,,2,-99055,5,4,Low
+CLM-2026-000139,CLT-000044,POL-000107,INC-000139,PRV-000019,376181,113971,Approved,80,Multiple claims by claimant; Unusually high claim amount; Large difference between requested and approved amount; ,4,262210,4,4,High
+CLM-2026-000140,CLT-000059,POL-000005,INC-000140,PRV-000029,257940,228680,Rejected,0,,3,29260,4,4,Low
+CLM-2026-000141,CLT-000007,POL-000101,INC-000141,PRV-000018,99321,139774,Submitted,40,Provider connected to many claimants; ,3,-40453,9,8,Medium
+CLM-2026-000142,CLT-000082,POL-000046,INC-000142,PRV-000030,22266,176107,Approved,70,Multiple claims by claimant; Provider connected to many claimants; ,4,-153841,10,8,High
+CLM-2026-000143,CLT-000060,POL-000031,INC-000143,PRV-000022,416190,196729,Rejected,90,Unusually high claim amount; Large difference between requested and approved amount; Provider connected to many claimants; ,2,219461,9,9,High
+CLM-2026-000144,CLT-000025,POL-000070,INC-000144,PRV-000004,285230,29413,Submitted,60,Large difference between requested and approved amount; Provider connected to many claimants; ,2,255817,10,10,High
+CLM-2026-000145,CLT-000048,POL-000011,INC-000145,PRV-000010,11768,291022,Rejected,0,,1,-279254,7,7,Low
+CLM-2026-000146,CLT-000026,POL-000017,INC-000146,PRV-000007,338983,217298,Rejected,0,,3,121685,6,5,Low
+CLM-2026-000147,CLT-000069,POL-000019,INC-000147,PRV-000006,123973,167721,Under Review,0,,3,-43748,6,6,Low
+CLM-2026-000148,CLT-000040,POL-000147,INC-000148,PRV-000022,84643,107449,Submitted,70,Multiple claims by claimant; Provider connected to many claimants; ,5,-22806,9,9,High
+CLM-2026-000149,CLT-000033,POL-000111,INC-000149,PRV-000008,319824,93916,Submitted,20,Large difference between requested and approved amount; ,2,225908,6,5,Low
+CLM-2026-000150,CLT-000001,POL-000074,INC-000150,PRV-000006,356186,77339,Approved,70,Unusually high claim amount; Large difference between requested and approved amount; Shared phone number; ,2,278847,6,6,High
+CLM-2026-000151,CLT-000099,POL-000140,INC-000151,PRV-000022,494727,22386,Approved,90,Unusually high claim amount; Large difference between requested and approved amount; Provider connected to many claimants; ,3,472341,9,9,High
+CLM-2026-000152,CLT-000014,POL-000099,INC-000152,PRV-000006,223036,181412,Under Review,0,,2,41624,6,6,Low
+CLM-2026-000153,CLT-000018,POL-000070,INC-000153,PRV-000030,478102,256052,Rejected,100,Multiple claims by claimant; Unusually high claim amount; Large difference between requested and approved amount; Provider connected to many claimants; ,4,222050,10,8,High
+CLM-2026-000154,CLT-000069,POL-000067,INC-000154,PRV-000022,187362,211445,Submitted,40,Provider connected to many claimants; ,3,-24083,9,9,Medium
+CLM-2026-000155,CLT-000094,POL-000109,INC-000155,PRV-000019,121616,290355,Approved,0,,3,-168739,4,4,Low
+CLM-2026-000156,CLT-000021,POL-000126,INC-000156,PRV-000028,164072,195815,Rejected,40,Provider connected to many claimants; ,1,-31743,9,9,Medium
+CLM-2026-000157,CLT-000077,POL-000143,INC-000157,PRV-000006,473905,94653,Approved,80,Multiple claims by claimant; Unusually high claim amount; Large difference between requested and approved amount; ,4,379252,6,6,High
+CLM-2026-000158,CLT-000039,POL-000132,INC-000158,PRV-000023,269843,41976,Approved,60,Large difference between requested and approved amount; Provider connected to many claimants; ,2,227867,11,10,High
+CLM-2026-000159,CLT-000076,POL-000110,INC-000159,PRV-000016,303423,298278,Rejected,0,,2,5145,6,6,Low
+CLM-2026-000160,CLT-000045,POL-000145,INC-000160,PRV-000005,349994,116908,Rejected,20,Large difference between requested and approved amount; ,1,233086,8,7,Low
+CLM-2026-000161,CLT-000068,POL-000128,INC-000161,PRV-000027,212284,98112,Rejected,40,Provider connected to many claimants; ,2,114172,9,9,Medium
+CLM-2026-000162,CLT-000015,POL-000092,INC-000162,PRV-000023,207440,224422,Approved,40,Provider connected to many claimants; ,2,-16982,11,10,Medium
+CLM-2026-000163,CLT-000029,POL-000037,INC-000163,PRV-000017,494012,242083,Submitted,90,Unusually high claim amount; Large difference between requested and approved amount; Provider connected to many claimants; ,3,251929,9,9,High
+CLM-2026-000164,CLT-000098,POL-000083,INC-000164,PRV-000014,146391,108766,Submitted,70,Multiple claims by claimant; Provider connected to many claimants; ,6,37625,9,9,High
+CLM-2026-000165,CLT-000027,POL-000077,INC-000165,PRV-000028,137423,233292,Submitted,40,Provider connected to many claimants; ,2,-95869,9,9,Medium
+CLM-2026-000166,CLT-000012,POL-000049,INC-000166,PRV-000017,463297,131396,Under Review,90,Unusually high claim amount; Large difference between requested and approved amount; Provider connected to many claimants; ,2,331901,9,9,High
+CLM-2026-000167,CLT-000099,POL-000108,INC-000167,PRV-000020,374540,224440,Approved,30,Unusually high claim amount; ,3,150100,5,5,Medium
+CLM-2026-000168,CLT-000057,POL-000018,INC-000168,PRV-000001,20653,10968,Rejected,40,Provider connected to many claimants; ,3,9685,11,11,Medium
+CLM-2026-000169,CLT-000031,POL-000135,INC-000169,PRV-000005,271254,233851,Submitted,0,,2,37403,8,7,Low
+CLM-2026-000170,CLT-000044,POL-000006,INC-000170,PRV-000017,439055,145106,Rejected,100,Multiple claims by claimant; Unusually high claim amount; Large difference between requested and approved amount; Provider connected to many claimants; ,4,293949,9,9,High
+CLM-2026-000171,CLT-000020,POL-000030,INC-000171,PRV-000009,57825,23065,Submitted,30,Multiple claims by claimant; ,4,34760,4,4,Medium
+CLM-2026-000172,CLT-000052,POL-000130,INC-000172,PRV-000028,12220,169438,Under Review,40,Provider connected to many claimants; ,3,-157218,9,9,Medium
+CLM-2026-000173,CLT-000033,POL-000112,INC-000173,PRV-000008,66430,266689,Under Review,0,,2,-200259,6,5,Low
+CLM-2026-000174,CLT-000040,POL-000078,INC-000174,PRV-000026,60239,268159,Submitted,30,Multiple claims by claimant; ,5,-207920,7,7,Medium
+CLM-2026-000175,CLT-000030,POL-000055,INC-000175,PRV-000008,400569,178629,Submitted,50,Unusually high claim amount; Large difference between requested and approved amount; ,3,221940,6,5,Medium
+CLM-2026-000176,CLT-000020,POL-000141,INC-000176,PRV-000015,29442,46451,Approved,30,Multiple claims by claimant; ,4,-17009,7,7,Medium
+CLM-2026-000177,CLT-000052,POL-000092,INC-000177,PRV-000004,137311,237451,Submitted,40,Provider connected to many claimants; ,3,-100140,10,10,Medium
+CLM-2026-000178,CLT-000023,POL-000034,INC-000178,PRV-000014,459705,233194,Rejected,100,Multiple claims by claimant; Unusually high claim amount; Large difference between requested and approved amount; Provider connected to many claimants; ,4,226511,9,9,High
+CLM-2026-000179,CLT-000058,POL-000067,INC-000179,PRV-000018,299631,29694,Rejected,90,Multiple claims by claimant; Large difference between requested and approved amount; Provider connected to many claimants; ,5,269937,9,8,High
+CLM-2026-000180,CLT-000059,POL-000132,INC-000180,PRV-000011,324670,269741,Approved,0,,3,54929,4,4,Low
+CLM-2026-000181,CLT-000003,POL-000096,INC-000181,PRV-000023,186920,269941,Rejected,40,Provider connected to many claimants; ,3,-83021,11,10,Medium
+CLM-2026-000182,CLT-000024,POL-000118,INC-000182,PRV-000026,312592,71480,Under Review,50,Multiple claims by claimant; Large difference between requested and approved amount; ,5,241112,7,7,Medium
+CLM-2026-000183,CLT-000098,POL-000064,INC-000183,PRV-000026,427186,294367,Approved,60,Multiple claims by claimant; Unusually high claim amount; ,6,132819,7,7,High
+CLM-2026-000184,CLT-000054,POL-000110,INC-000184,PRV-000016,434208,144520,Rejected,50,Unusually high claim amount; Large difference between requested and approved amount; ,2,289688,6,6,Medium
+CLM-2026-000185,CLT-000099,POL-000026,INC-000185,PRV-000028,147431,156794,Submitted,40,Provider connected to many claimants; ,3,-9363,9,9,Medium
+CLM-2026-000186,CLT-000057,POL-000038,INC-000186,PRV-000026,203020,259185,Rejected,0,,3,-56165,7,7,Low
+CLM-2026-000187,CLT-000079,POL-000080,INC-000187,PRV-000010,453214,6904,Under Review,50,Unusually high claim amount; Large difference between requested and approved amount; ,1,446310,7,7,Medium
+CLM-2026-000188,CLT-000016,POL-000131,INC-000188,PRV-000027,38423,82500,Rejected,40,Provider connected to many claimants; ,1,-44077,9,9,Medium
+CLM-2026-000189,CLT-000040,POL-000108,INC-000189,PRV-000004,153110,53406,Under Review,70,Multiple claims by claimant; Provider connected to many claimants; ,5,99704,10,10,High
+CLM-2026-000190,CLT-000023,POL-000114,INC-000190,PRV-000029,198430,9310,Submitted,30,Multiple claims by claimant; ,4,189120,4,4,Medium
+CLM-2026-000191,CLT-000077,POL-000124,INC-000191,PRV-000005,193563,161073,Approved,30,Multiple claims by claimant; ,4,32490,8,7,Medium
+CLM-2026-000192,CLT-000008,POL-000027,INC-000192,PRV-000017,461569,138016,Submitted,90,Unusually high claim amount; Large difference between requested and approved amount; Provider connected to many claimants; ,1,323553,9,9,High
+CLM-2026-000193,CLT-000064,POL-000071,INC-000193,PRV-000017,413604,282721,Under Review,70,Unusually high claim amount; Provider connected to many claimants; ,1,130883,9,9,High
+CLM-2026-000194,CLT-000020,POL-000005,INC-000194,PRV-000028,16653,279699,Approved,70,Multiple claims by claimant; Provider connected to many claimants; ,4,-263046,9,9,High
+CLM-2026-000195,CLT-000071,POL-000125,INC-000195,PRV-000002,84602,136731,Rejected,0,,3,-52129,4,4,Low
+CLM-2026-000196,CLT-000052,POL-000052,INC-000196,PRV-000009,223867,270724,Submitted,0,,3,-46857,4,4,Low
+CLM-2026-000197,CLT-000098,POL-000119,INC-000197,PRV-000016,248950,6363,Rejected,50,Multiple claims by claimant; Large difference between requested and approved amount; ,6,242587,6,6,Medium
+CLM-2026-000198,CLT-000082,POL-000099,INC-000198,PRV-000010,452241,200480,Submitted,80,Multiple claims by claimant; Unusually high claim amount; Large difference between requested and approved amount; ,4,251761,7,7,High
+CLM-2026-000199,CLT-000067,POL-000095,INC-000199,PRV-000026,298184,289136,Approved,0,,1,9048,7,7,Low
+CLM-2026-000200,CLT-000056,POL-000112,INC-000200,PRV-000030,132043,298879,Rejected,40,Provider connected to many claimants; ,2,-166836,10,8,Medium

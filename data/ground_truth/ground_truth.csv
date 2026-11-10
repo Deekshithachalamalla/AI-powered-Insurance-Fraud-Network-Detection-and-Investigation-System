@@ -1,0 +1,4 @@
+claim_id,is_fraud,fraud_pattern
+CLM-2026-000001,1,Shared provider network
+CLM-2026-000002,1,Shared phone and provider
+CLM-2026-000003,1,Shared provider network
