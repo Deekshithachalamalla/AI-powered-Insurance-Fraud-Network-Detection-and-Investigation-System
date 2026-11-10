@@ -417,32 +417,36 @@ Explore claim risk scoring, suspicious claim investigations, financial anomaly d
 ## 11. Project Screenshots
 
 ### 1. Dashboard Overview
-
 ![Dashboard Overview](screenshots/dashboard_overview.png)
 
 ### 2. Claim Risk Distribution
-
-![Risk Distribution](screenshots/risk_distribution.png)
+![Claim Risk Distribution](screenshots/risk_distribution.png)
 
 ### 3. Risk Score Analysis
-
 ![Risk Score Analysis](screenshots/risk_score_analysis.png)
 
-### 4. Suspicious Claims and Investigations
+### 4. Suspicious Claims
+![Suspicious Claims](screenshots/suspicious_claims_investigations.png)
 
-![Suspicious Claims and Investigations](screenshots/suspicious_claims_investigations.png)
+### 5. Claim Investigation Management
+![Claim Investigation Management](screenshots/claim_investigation_management.png)
 
-### 5. Financial Anomaly Detection
-
+### 6. Financial Anomaly Detection
 ![Financial Anomaly Detection](screenshots/financial_anomaly_detection.png)
 
-### 6. Fraud Network Visualization
+### 7. Financial Exception Management
+![Financial Exception Management](screenshots/financial_exception_management.png)
 
-![Fraud Network Graph](screenshots/fraud_network_graph.png)
+### 8. Investigation Audit History
+![Investigation Audit History](screenshots/investigation_audit_history.png)
 
-### 7. Network Statistics
+### 9. Fraud Network Visualization
+![Fraud Network Visualization](screenshots/fraud_network_graph.png)
 
+### 10. Network Statistics
 ![Network Statistics](screenshots/network_statistics.png)
+
+
 
 ## 12. Future Enhancements
 
